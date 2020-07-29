@@ -19,6 +19,7 @@
     <div class="content">
         <div class="title m-b-md">
             Laravel
+            <p>{{ $id }}</p>
         </div>
     </div>
 </div>
