@@ -4,20 +4,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>SI Keuangan</title>
+    <title>CV Bangun Karya - SI Keuangan</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
     <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/Table-With-Search-1.css">
     <link rel="stylesheet" href="assets/css/Table-With-Search.css">
 </head>
 
@@ -31,55 +30,15 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/aboutus">Tentang Kami</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/portofolio">Portofolio</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Menu Admin</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Pengeluaran</a><a class="dropdown-item" role="presentation" href="#">Pemasukan</a><a class="dropdown-item" role="presentation" href="#">Neraca Keuangan</a></div>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="/pengeluaran">Pengeluaran</a><a class="dropdown-item" role="presentation" href="/pemasukan">Pemasukan</a><a class="dropdown-item" role="presentation" href="si">Neraca Keuangan</a></div>
                     </li>
                 </ul>
         </div>
         </div>
     </nav>
-    <h1 class="d-xl-flex justify-content-xl-center" style="margin-bottom: 0px;margin-top: 7rem;">Pengeluaran</h1>
-    <div class="col-md-12 search-table-col">
-        <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.."></div><span class="counter pull-right"></span><button class="btn btn-primary" type="button">Tambah<i class="fa fa-plus" style="margin-left: 5px;"></i></button>
-        <div
-            class="table-responsive table-bordered table table-hover table-bordered results">
-            <table class="table table-bordered table-hover">
-                <thead class="bill-header cs">
-                    <tr>
-                        <th id="trs-hd" class="col-lg-1" style="width: 2%;">No.</th>
-                        <th id="trs-hd" class="col-lg-2" style="width: 10%;">Tanggal</th>
-                        <th id="trs-hd" class="col-lg-3" style="width: 10%;">Nama Barang</th>
-                        <th id="trs-hd" class="col-lg-2" style="width: 30%;">Deskripsi</th>
-                        <th id="trs-hd" class="col-lg-2" style="width: 10%;">Qty</th>
-                        <th id="trs-hd-1" class="col-lg-2" style="width: 10%;">Harga Satuan</th>
-                        <th id="trs-hd-2" class="col-lg-2" style="width: 10%;">Jumlah</th>
-                        <th id="trs-hd" class="col-lg-2" style="width: 13%;">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>02 Dec 2019</td>
-                        <td>Baterai</td>
-                        <td>Untuk&nbsp;</td>
-                        <td>5</td>
-                        <td>10000</td>
-                        <td>50000</td>
-                        <td><button class="btn btn-success" style="margin-left: 5px;" type="submit">Edit<i class="fa fa-edit" style="font-size: 15px;margin-left: 5px;"></i></button><button class="btn btn-danger" style="margin-left: 5px;" type="submit">Hapus<i class="fa fa-trash" style="font-size: 15px;margin-left: 5px;"></i></button></td>
-                    </tr>
-                    <tr>
-                        <td>02</td>
-                        <td>17 Dec 2019</td>
-                        <td>Alat tulis</td>
-                        <td>Untuk keperluan kantor</td>
-                        <td>12</td>
-                        <td>2000</td>
-                        <td>24000</td>
-                        <td><button class="btn btn-success" style="margin-left: 5px;" type="submit">Edit<i class="fa fa-edit" style="font-size: 15px;margin-left: 5px;"></i></button><button class="btn btn-danger" style="margin-left: 5px;" type="submit">Hapus<i class="fa fa-trash" style="font-size: 15px;margin-left: 5px;"></i></button></td>
-                    </tr>
-                </tbody>
-            </table>
-    </div>
-    </div>
+    
+    @yield('content2')
+
     <div class="footer-basic" style="background-color: #25282b">
         <footer>
             <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
