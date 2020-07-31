@@ -22,6 +22,11 @@
             </div>
 
             <div class="form-group">
+                <label>Kategori</label>
+                <input type="text" class="form-control" placeholder="Kategori">
+            </div>
+
+            <div class="form-group">
                 <label>Deskripsi</label>
                 <input type="text" class="form-control" placeholder="Deskripsi">
             </div>

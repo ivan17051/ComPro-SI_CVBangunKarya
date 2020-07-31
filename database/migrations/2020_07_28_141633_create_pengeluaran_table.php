@@ -17,6 +17,7 @@ class CreatePengeluaranTable extends Migration
             $table->increments('id_pengeluaran');
             $table->date('tanggal_belanja');
             $table->string('list_belanja');
+            $table->text('kategori');
             $table->text('deskripsi');
             $table->integer('jumlah_barang');
             $table->integer('harga_satuan');
