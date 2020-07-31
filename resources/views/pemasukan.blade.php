@@ -30,6 +30,15 @@
                 <label>Jumlah Pemasukan Klien</label>
                 <input type="number" class="form-control" placeholder="Jumlah Pemasukan">
             </div>
+
+            <div class="input-group">
+                <div class="custom-file">
+                    <label>Upload Struk</label>
+                    <input type="file" class="custom-file-input">
+                    <label class="custom-file-label">Pilih File</label>
+                </div>
+            </div>
+            
             <button type="submit" name="submit" class="btn btn-primary">Simpan Data</button>
         </form>
     </div>
