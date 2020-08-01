@@ -9,14 +9,14 @@
             <table class="table table-bordered table-hover">
                 <thead class="bill-header cs">
                     <tr>
-                        <th id="trs-hd" class="col-lg-1" style="width: 2%;">No.</th>
-                        <th id="trs-hd" class="col-lg-2" style="width: 10%;">Tanggal</th>
-                        <th id="trs-hd" class="col-lg-3" style="width: 10%;">Nama Barang</th>
-                        <th id="trs-hd" class="col-lg-2" style="width: 30%;">Deskripsi</th>
-                        <th id="trs-hd" class="col-lg-2" style="width: 10%;">Qty</th>
-                        <th id="trs-hd-1" class="col-lg-2" style="width: 10%;">Harga Satuan</th>
-                        <th id="trs-hd-2" class="col-lg-2" style="width: 10%;">Jumlah</th>
-                        <th id="trs-hd" class="col-lg-2" style="width: 13%;">Action</th>
+                        <th id="trs-hd" class="col-lg" style="width: 2%;">No.</th>
+                        <th id="trs-hd" class="col-lg" style="width: 10%;">Tanggal</th>
+                        <th id="trs-hd" class="col-lg" style="width: 10%;">Nama Barang</th>
+                        <th id="trs-hd" class="col-lg" style="width: 30%;">Deskripsi</th>
+                        <th id="trs-hd" class="col-lg" style="width: 10%;">Qty</th>
+                        <th id="trs-hd" class="col-lg" style="width: 10%;">Harga Satuan</th>
+                        <th id="trs-hd" class="col-lg" style="width: 10%;">Jumlah</th>
+                        <th id="trs-hd" class="col-lg" style="width: 13%;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,7 +28,10 @@
                         <td>5</td>
                         <td>10000</td>
                         <td>50000</td>
-                        <td><button class="btn btn-success" style="margin-left: 5px;" type="submit">Edit<i class="fa fa-edit" style="font-size: 15px;margin-left: 5px;"></i></button><button class="btn btn-danger" style="margin-left: 5px;" type="submit">Hapus<i class="fa fa-trash" style="font-size: 15px;margin-left: 5px;"></i></button></td>
+                        <td>
+                            <button class="btn btn-success" style="margin-left: 5px; text-size: 5;" type="submit">Edit<i class="fa fa-edit" style="font-size: 15px;margin-left: 5px;"></i></button>
+                            <button class="btn btn-danger" style="margin-left: 5px;" type="submit">Hapus<i class="fa fa-trash" style="font-size: 15px;margin-left: 5px;"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <td>02</td>

@@ -58,8 +58,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script src="assets/js/Table-With-Search.js"></script>
     <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/Off-Canvas-Sidebar-Drawer-Navbar.js"></script>
-    <script src="assets/js/Off-Canvas-Sidebar-Drawer-Navbar-1.js"></script>
 </body>
 
 </html>

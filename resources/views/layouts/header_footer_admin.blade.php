@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CV Bangun Karya - SI Keuangan</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,16 +13,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
-    <link rel="stylesheet" href="assets/css/Lightbox-Gallery.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
-    <link rel="stylesheet" href="assets/css/Table-With-Search.css">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="/assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="/assets/css/Lightbox-Gallery.css">
+    <link rel="stylesheet" href="/assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="/assets/css/Table-With-Search.css">
 </head>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md fixed-top navigation-clean">
-        <div class="container"><a class="navbar-brand" href="index.html">CV Bangun Karya Sejahtera</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="/">CV Bangun Karya Sejahtera</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div
                 class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
@@ -30,7 +30,12 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/aboutus">Tentang Kami</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/portofolio">Portofolio</a></li>
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Menu Admin</a>
-                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="/pengeluaran">Pengeluaran</a><a class="dropdown-item" role="presentation" href="/pemasukan">Pemasukan</a><a class="dropdown-item" role="presentation" href="si">Neraca Keuangan</a></div>
+                        <div class="dropdown-menu" role="menu">
+                            <a class="dropdown-item" role="presentation" href="/pengeluaran">Pengeluaran</a>
+                            <a class="dropdown-item" role="presentation" href="/pemasukan">Pemasukan</a>
+                            <a class="dropdown-item" role="presentation" href="/kategori">Kategori</a>
+                            <a class="dropdown-item" role="presentation" href="/si">Neraca Keuangan</a>
+                        </div>
                     </li>
                 </ul>
         </div>
@@ -53,8 +58,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/Off-Canvas-Sidebar-Drawer-Navbar.js"></script>
-    <script src="assets/js/Off-Canvas-Sidebar-Drawer-Navbar-1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script src="assets/js/Table-With-Search.js"></script>
 </body>

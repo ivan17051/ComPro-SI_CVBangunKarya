@@ -17,13 +17,13 @@ class CreatePengeluaranTable extends Migration
             $table->increments('id_pengeluaran');
             $table->date('tanggal_belanja');
             $table->string('list_belanja');
-            $table->text('kategori');
             $table->text('deskripsi');
+            $table->string('kategori');
             $table->integer('jumlah_barang');
-            $table->integer('harga_satuan');
-            $table->integer('jumlah');
-            $table->string('nama_toko');
-            $table->mediumText('upload_struk')->nullable();
+            $table->bigInteger('harga_satuan');
+            $table->bigInteger('jumlah');
+            $table->string('nama_toko')->nullable();
+            $table->mediumText('upload_bukti')->nullable();
             $table->timestamps();
         });
     }
