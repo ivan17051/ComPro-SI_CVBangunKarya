@@ -14,7 +14,7 @@ class CreatePengeluaranTable extends Migration
     public function up()
     {
         Schema::create('pengeluaran', function (Blueprint $table) {
-            $table->increments('id_pengeluaran');
+            $table->increments('id');
             $table->date('tanggal_belanja');
             $table->string('list_belanja');
             $table->text('deskripsi');

@@ -9,21 +9,42 @@
             <table class="table table-bordered table-hover">
                 <thead class="bill-header cs">
                     <tr>
-                        <th id="trs-hd" class="col-lg" style="width: 2%;">No.</th>
+                        <th id="trs-hd" class="col-lg" style="width: 2%;">#</th>
                         <th id="trs-hd" class="col-lg" style="width: 55%;">Nama Kategori</th>
                         <th id="trs-hd" class="col-lg" style="width: 25%;">Keterangan</th>
                         <th id="trs-hd" class="col-lg" style="width: 18%;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($kategori as $unit)
+                @if($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ $message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                @foreach($kategori as $unit)
                     <tr>
-                        <td>{{ $unit->id_kategori }}</td>
+                        <td>{{ $unit->id }}</td>
                         <td>{{ $unit->nama_kategori }}</td>
                         <td>{{ $unit->keterangan }}</td>
                         <td>
-                            <button class="btn btn-success" style="margin-left: 5px; width: 45%;" type="submit">Edit<i class="fa fa-edit" style="font-size: 15px;margin-left: 5px;"></i></button>
-                            <button class="btn btn-danger" style="margin-left: 5px; width: 45%;" type="submit">Hapus<i class="fa fa-trash" style="font-size: 15px;margin-left: 5px;"></i></button>
+                            <div class="row">
+                                <div class="col-sm" style="padding-left:12px; padding-right:2px;">
+                                    <form action="/kategori/edit/{{ $unit->id }}" method="GET">
+                                        @csrf
+                                        <button class="btn btn-success btn-sm" style="width: 100%; font-size:12px;">Edit<i class="fa fa-edit" style="font-size: 13px; margin-left: 5px;"></i></button>
+                                    </form>
+                                </div>
+                                <div class="col-sm" style="padding-right:15px; padding-left:2px;">
+                                    <form action="/kategori/{{ $unit->id }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-sm" style="width: 100%; font-size:12px;">Hapus<i class="fa fa-trash" style="font-size: 13px; margin-left: 5px;"></i></button>
+                                    </form>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

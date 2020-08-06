@@ -3,18 +3,18 @@
 @section('content2')
     <div class="container border rounded" style="margin-top:15vh; margin-bottom:15vh; box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15) !important;">
         <h1 class="text-center" style="margin:40px;">Form Kategori</h1>
-        <form action="/kategori" method="POST" enctype="multipart/form-data">
+        <form action="/kategori/edit/{{ $unit->id }}" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="form-group">
                 <label>Nama Kategori</label>
-                <input type="text" class="form-control" name="nama">
+                <input type="text" class="form-control" name="nama" value="{{ $unit->nama_kategori }}">
             </div>
 
             <div class="form-group">
                 <label>Keterangan</label>
                 <select class="form-control" name="keterangan" placeholder="Pilih">
-                    <option value="Pemasukan">Pemasukan</option>
-                    <option value="Pengeluaran">Pengeluaran</option>
+                    <option value="Pemasukan" @if($unit->keterangan == 'Pemasukan') selected @endif>Pemasukan</option>
+                    <option value="Pengeluaran" @if($unit->keterangan == 'Pengeluaran') selected @endif>Pengeluaran</option>
                 </select>
             </div>
 
