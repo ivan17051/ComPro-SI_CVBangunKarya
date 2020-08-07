@@ -7,12 +7,12 @@
         @csrf
             <div class="form-group">
                 <label>Nama Kategori</label>
-                <input type="text" class="form-control" name="nama">
+                <input type="text" class="form-control" name="nama" required>
             </div>
 
             <div class="form-group">
                 <label>Keterangan</label>
-                <select class="form-control" name="keterangan" placeholder="Pilih">
+                <select class="form-control" name="keterangan" required>
                     <option value="Pemasukan">Pemasukan</option>
                     <option value="Pengeluaran">Pengeluaran</option>
                 </select>

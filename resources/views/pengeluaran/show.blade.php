@@ -33,17 +33,17 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label>Jumlah Barang</label>
-                    <p class="border rounded" style="padding:5px;">{{ $unit->jumlah_barang }}</p>
+                    <p class="border rounded" style="padding:5px;">{{ number_format($unit->jumlah_barang) }}</p>
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Harga Satuan</label>
-                    <p class="border rounded" style="padding:5px;">{{ $unit->harga_satuan }}</p>
+                    <p class="border rounded" style="padding:5px;">Rp {{ number_format($unit->harga_satuan) }}</p>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Jumlah</label>
-                <p class="border rounded" style="padding:5px;">{{ $unit->jumlah }}</p>
+                <p class="border rounded" style="padding:5px;">Rp {{ number_format($unit->jumlah) }}</p>
             </div>
 
             <div class="text-center">

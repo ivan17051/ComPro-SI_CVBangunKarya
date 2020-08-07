@@ -1,7 +1,7 @@
 @extends('layouts.header_footer_admin')
 
 @section('content2')
-    <h1 class="text-center" style="margin-top: 7rem;">Pengeluaran</h1>
+    <h1 class="text-center" style="margin-top: 7rem;">Rencana Anggaran Belanja</h1>
     <div class="col-md-12 search-table-col">
         <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.."></div><span class="counter pull-right"></span><a href="/pengeluaran/create"><button class="btn btn-primary" type="button">Tambah<i class="fa fa-plus" style="margin-left: 5px;"></i></button></a>
         <div
@@ -10,14 +10,9 @@
                 <thead class="bill-header cs">
                     <tr>
                         <th id="trs-hd" class="col" style="width: 2%;">#</th>
-                        <th id="trs-hd" class="col" style="width: 7%;">Tanggal</th>
-                        <th id="trs-hd" class="col" style="width: 10%;">Nama Barang</th>
-                        <th id="trs-hd" class="col" style="width: 13%;">Nama Toko</th>
-                        <th id="trs-hd" class="col" style="width: 28%;">Deskripsi</th>
-                        <th id="trs-hd" class="col" style="width: 10%;">Kategori</th>
-                        <!-- <th id="trs-hd" class="col" style="width: 5%;">Qty</th>
-                        <th id="trs-hd" class="col" style="width: 8%;">Harga Satuan</th> -->
-                        <th id="trs-hd" class="col" style="width: 10%;">Jumlah</th>
+                        <th id="trs-hd" class="col" style="width: 20%;">Nama Proyek</th>
+                        <th id="trs-hd" class="col" style="width: 38%;">Lokasi</th>
+                        <th id="trs-hd" class="col" style="width: 20%;">Grand Total</th>
                         <th id="trs-hd" class="col" style="width: 20%;">Action</th>
                     </tr>
                 </thead>
@@ -30,23 +25,30 @@
                         </button>
                     </div>
                 @endif
-                @foreach($pengeluaran as $unit)
+                @foreach($proyek as $unit)
                     <tr>
                         <td>{{ $unit->id }}</td>
-                        <td>{{ $unit->tanggal_belanja }}</td>
-                        <td>{{ $unit->list_belanja }}</td>
-                        <td>{{ $unit->nama_toko }}</td>
-                        <td>{{ $unit->deskripsi }}</td>
-                        <td>{{ $unit->kategori }}</td>
-                        <!-- <td>{{ $unit->jumlah_barang }}</td>
-                        <td>{{ $unit->harga_satuan }}</td> -->
-                        <td>Rp {{ number_format($unit->jumlah) }}</td>
+                        <td>{{ $unit->nama_proyek }}</td>
+                        <td>{{ $unit->lokasi }}</td>
+                        <td>Rp {{ number_format($unit->total) }}</td>
                         <td>
                             <div class="row">
                                 <div class="col-sm" style="padding-left:12px; padding-right:2px;">
-                                    <form action="/pengeluaran/{{ $unit->id }}" method="GET">
+                                    <!-- <form action="/pengeluaran/{{ $unit->id }}" method="GET">
                                         <button class="btn btn-info btn-sm" style="width: 100%; font-size:12px;">Lihat<i class="fa fa-eye" style="font-size: 13px; margin-left: 5px;"></i></button>
-                                    </form>
+                                    </form> -->
+                                    <div class="btn-group" style="padding-left:; padding-right:2px; width:100%;">
+                                        <button class="btn btn-info btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 100%; font-size:12px;">
+                                            Lihat<i class="fa fa-eye" style="font-size: 13px; margin-left: 5px;"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Rekap RAB</a>
+                                            <form action="/rab/{{ $unit->id }}/persiapan" method="get"><button class="dropdown-item">Persiapan</button></form>
+                                            <a class="dropdown-item" href="#">Struktur</a>
+                                            <a class="dropdown-item" href="#">Arsitektur</a>
+                                            <a class="dropdown-item" href="#">MEP</a>
+                                        </div>
+                                    </div>   
                                 </div>
                                 <div class="col-sm" style="padding-left:2px; padding-right:2px;">
                                     <form action="/pengeluaran/edit/{{ $unit->id }}" method="GET">
@@ -64,10 +66,11 @@
                             </div>
                         </td>
                     </tr>
+                    
                 @endforeach
                 </tbody>
             </table>
-            <div class="d-flex justify-content-center">{{ $pengeluaran->links() }}</div>
+            <div class="d-flex justify-content-center">{{ $proyek->links() }}</div>
     </div>
     </div>
 @endsection

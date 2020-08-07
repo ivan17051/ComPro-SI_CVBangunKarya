@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-md-12 form-group">
                     <label>Jumlah</label>
-                    <p class="border rounded" style="padding:5px;">{{ $unit->jumlah_pemasukan_klien }}</p>
+                    <p class="border rounded" style="padding:5px;">Rp {{ number_format($unit->jumlah_pemasukan_klien) }}</p>
                 </div>
             </div>
             <div class="text-center">

@@ -49,3 +49,7 @@ Route::get('/pengeluaran/{id}', 'PengeluaranController@show');
 Route::get('/pengeluaran/edit/{id}', 'PengeluaranController@edit');
 Route::post('/pengeluaran/edit/{id}', 'PengeluaranController@update');
 Route::delete('/pengeluaran/{id}', 'PengeluaranController@destroy');
+
+Route::get('/rab', 'RabController@index');
+
+Route::get('/rab/{id}/persiapan', 'PersiapanController@index');

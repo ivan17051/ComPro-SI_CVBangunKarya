@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label>Tanggal</label>
-                    <input type="date" class="form-control" name="tanggal" value="{{ $unit->tanggal_pemasukan }}">
+                    <input type="date" class="form-control" name="tanggal" value="{{ $unit->tanggal_pemasukan }}" required>
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Kategori</label>
@@ -22,13 +22,13 @@
 
             <div class="form-group">
                 <label>Deskripsi</label>
-                <textarea class="form-control" name="deskripsi" cols="30" rows="5">{{ $unit->deskripsi }}</textarea>
+                <textarea class="form-control" name="deskripsi" cols="30" rows="5" required>{{ $unit->deskripsi }}</textarea>
             </div> 
 
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label>Jumlah</label>
-                    <input type="text" class="form-control" name="jumlah" value="{{ $unit->jumlah_pemasukan_klien }}">
+                    <input type="text" class="form-control" name="jumlah" value="{{ $unit->jumlah_pemasukan_klien }}" required>
                 </div>
                 <div class="col-md-6">
                     <label>Bukti</label>

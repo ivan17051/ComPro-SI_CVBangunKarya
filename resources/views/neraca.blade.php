@@ -19,7 +19,7 @@
                         <tr> 
                             <td></td>
                             <td></td>
-                            <td>{{ $unit1 }}</td>
+                            <td>Rp {{ number_format($unit1) }}</td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -29,7 +29,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>{{ $unit2 }}</td>
+                            <td>Rp {{ number_format($unit2) }}</td>
                             <td></td>
                         </tr>
                     @endforeach

@@ -36,11 +36,8 @@
                             <a class="dropdown-item" role="presentation" href="/pengeluaran">Pengeluaran</a>
                             <a class="dropdown-item" role="presentation" href="/pemasukan">Pemasukan</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" role="presentation" href="#">Rekap RAB</a>
-                            <a class="dropdown-item" role="presentation" href="#">Persiapan</a>
-                            <a class="dropdown-item" role="presentation" href="#">Struktur</a>
-                            <a class="dropdown-item" role="presentation" href="#">Arsitektur</a>
-                            <a class="dropdown-item" role="presentation" href="#">MEP</a>
+                            <a class="dropdown-item" role="presentation" href="/rab">RAB</a>
+                            <a class="dropdown-item" role="presentation" href="#">Kategori RAB</a>
                         </div>
                     </li>
                 </ul>
@@ -63,9 +60,10 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/bs-init.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-    <script src="assets/js/Table-With-Search.js"></script>
+    <script src="/assets/js/Table-With-Search.js"></script>
+    <script src="/assets/js/Auto-Sum.js"></script>
 </body>
 
 </html>

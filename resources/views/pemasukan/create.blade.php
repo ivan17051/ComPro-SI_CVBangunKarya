@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label>Tanggal</label>
-                    <input type="date" class="form-control" name="tanggal">
+                    <input type="date" class="form-control" name="tanggal" required>
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Kategori</label>
@@ -22,13 +22,13 @@
 
             <div class="form-group">
                 <label>Deskripsi</label>
-                <textarea class="form-control" name="deskripsi" id="" cols="30" rows="5"></textarea>
+                <textarea class="form-control" name="deskripsi" id="" cols="30" rows="5" required></textarea>
             </div> 
 
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label>Jumlah</label>
-                    <input type="text" class="form-control" name="jumlah" placeholder="">
+                    <input type="text" class="form-control" name="jumlah" required>
                 </div>
                 <div class="col-md-6">
                     <label>Bukti</label>

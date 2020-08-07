@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label>Tanggal</label>
-                    <input type="date" class="form-control" name="tanggal" value="{{ $unit->tanggal_belanja }}">
+                    <input type="date" class="form-control" name="tanggal" value="{{ $unit->tanggal_belanja }}" required>
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Kategori</label>
@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 <label>Nama Barang</label>
-                <input type="text" class="form-control" name="nama_barang" value="{{ $unit->list_belanja }}">
+                <input type="text" class="form-control" name="nama_barang" value="{{ $unit->list_belanja }}" required>
             </div>
             <div class="form-group">
                 <label>Nama Toko</label>
@@ -31,25 +31,25 @@
 
             <div class="form-group">
                 <label>Deskripsi</label>
-                <textarea class="form-control" name="deskripsi" id="" cols="30" rows="5">{{ $unit->deskripsi }}</textarea>
+                <textarea class="form-control" name="deskripsi" id="" cols="30" rows="5" required>{{ $unit->deskripsi }}</textarea>
             </div>
 
             <div class="row">
                 <div class="col form-group">
                     <label>Qty</label>
-                    <input type="number" class="form-control" name="qty" value="{{ $unit->jumlah_barang }}">
+                    <input type="number" class="form-control" name="qty" id="qty" value="{{ $unit->jumlah_barang }}" required>
                 </div>
 
                 <div class="col form-group">
                     <label>Harga Satuan</label>
-                    <input type="text" class="form-control" name="harga" value="{{ $unit->harga_satuan }}">
+                    <input type="text" class="form-control" name="harga" id="harga" value="{{ $unit->harga_satuan }}" required>
                 </div>
             </div>            
 
             <div class="row">
                 <div class="col form-group">
                     <label>Jumlah</label>
-                    <input type="text" class="form-control" name="jumlah" value="{{ $unit->jumlah }}">
+                    <input type="text" class="form-control" name="jumlah" id="jumlah" value="{{ $unit->jumlah }}" required>
                 </div>
                 <div class="col">
                     <label>Bukti</label>
