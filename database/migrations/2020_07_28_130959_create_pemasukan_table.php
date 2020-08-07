@@ -16,10 +16,9 @@ class CreatePemasukanTable extends Migration
         Schema::create('pemasukan', function (Blueprint $table) {
             $table->increments('id');
             $table->date('tanggal_pemasukan');
+            $table->text('kategori');
             $table->text('deskripsi');
-            $table->string('kategori');
-            $table->integer('jumlah_pemasukan_klien');
-            $table->mediumText('upload_bukti')->nullable();
+            $table->integer('jumlah_pemsasukan_klien');
             $table->timestamps();
         });
     }

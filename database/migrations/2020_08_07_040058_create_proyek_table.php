@@ -14,7 +14,7 @@ class CreateProyekTable extends Migration
     public function up()
     {
         Schema::create('proyek', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id_proyek');
             $table->string('nama_proyek');
             $table->string('lokasi');
             $table->bigInteger('total');
