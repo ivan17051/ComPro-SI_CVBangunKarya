@@ -40,18 +40,18 @@
                         <td>
                             <div class="row">
                                 <div class="col-sm" style="padding-left:12px; padding-right:2px;">
-                                    <form action="/arsitektur/{{ $unit->id }}" method="GET">
+                                    <form action="rab/arsitektur/{{ $unit->id }}" method="GET">
                                         <button class="btn btn-info btn-sm" style="width: 100%; font-size:12px;">Lihat<i class="fa fa-eye" style="font-size: 13px; margin-left: 5px;"></i></button>
                                     </form>
                                 </div>
                                 <div class="col-sm" style="padding-left:2px; padding-right:2px;">
-                                    <form action="/arsitektur/edit/{{ $unit->id }}" method="GET">
+                                    <form action="rab/arsitektur/edit/{{ $unit->id }}" method="GET">
                                         @csrf
                                         <button class="btn btn-success btn-sm" style="width: 100%; font-size:12px;">Edit<i class="fa fa-edit" style="font-size: 13px; margin-left: 5px;"></i></button>
                                     </form>
                                 </div>
                                 <div class="col-sm" style="padding-right:15px; padding-left:2px;">
-                                    <form action="/arsitektur/{{ $unit->id }}" method="POST">
+                                    <form action="rab/arsitektur/{{ $unit->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger btn-sm" style="width: 100%; font-size:12px;">Hapus<i class="fa fa-trash" style="font-size: 13px; margin-left: 5px;"></i></button>
