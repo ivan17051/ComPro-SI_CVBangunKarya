@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProyekTable extends Migration
+class CreateKategoriRabTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateProyekTable extends Migration
      */
     public function up()
     {
-        Schema::create('proyek', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nama_proyek');
-            $table->string('lokasi');
-            $table->bigInteger('total');
+        Schema::create('kategori_rab', function (Blueprint $table) {
+            $table->id();
+            $table->Integer('id_proyek');
+            $table->string('nama_kategori');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateProyekTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proyek');
+        Schema::dropIfExists('kategori_rab');
     }
 }

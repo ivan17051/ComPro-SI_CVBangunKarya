@@ -3,7 +3,7 @@
 @section('content2')
     <h1 class="text-center" style="margin-top: 7rem;">Persiapan</h1>
     <div class="col-md-12 search-table-col">
-        <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.."></div><span class="counter pull-right"></span><a href="/pengeluaran/create"><button class="btn btn-primary" type="button">Tambah<i class="fa fa-plus" style="margin-left: 5px;"></i></button></a>
+        <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.."></div><span class="counter pull-right"></span><a href="/rab/{{ $proyek->id }}/persiapan/create"><button class="btn btn-primary" type="button">Tambah<i class="fa fa-plus" style="margin-left: 5px;"></i></button></a>
         <div
             class="table-responsive table-bordered table table-hover table-bordered results">
             <table class="table table-bordered table-hover">
@@ -38,18 +38,18 @@
                         <td>
                         <div class="row">
                                 <div class="col-sm" style="padding-left:12px; padding-right:2px;">
-                                    <form action="/pengeluaran/{{ $unit->id }}" method="GET">
+                                    <form action="/rab/persiapan/{{ $unit->id }}" method="GET">
                                         <button class="btn btn-info btn-sm" style="width: 100%; font-size:12px;">Lihat<i class="fa fa-eye" style="font-size: 13px; margin-left: 5px;"></i></button>
                                     </form> 
                                 </div>
                                 <div class="col-sm" style="padding-left:2px; padding-right:2px;">
-                                    <form action="/pengeluaran/edit/{{ $unit->id }}" method="GET">
+                                    <form action="/rab/persiapan/edit/{{ $unit->id }}" method="GET">
                                         @csrf
                                         <button class="btn btn-success btn-sm" style="width: 100%; font-size:12px;">Edit<i class="fa fa-edit" style="font-size: 13px; margin-left: 5px;"></i></button>
                                     </form>
                                 </div>
                                 <div class="col-sm" style="padding-right:15px; padding-left:2px;">
-                                    <form action="/pengeluaran/{{ $unit->id }}" method="POST">
+                                    <form action="/rab/persiapan/{{ $unit->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger btn-sm" style="width: 100%; font-size:12px;">Hapus<i class="fa fa-trash" style="font-size: 13px; margin-left: 5px;"></i></button>
