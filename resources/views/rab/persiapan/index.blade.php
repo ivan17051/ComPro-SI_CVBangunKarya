@@ -2,6 +2,13 @@
 
 @section('content2')
     <h1 class="text-center" style="margin-top: 7rem;">Persiapan</h1>
+    <nav aria-label="breadcrumb" style="margin-top: 2rem;">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/rab">Proyek RAB</a></li>
+            <li class="breadcrumb-item"><a href="/rab/{{ $persiapan[0]->id_proyek }}">Rekap RAB</a></li>
+            <li class="breadcrumb-item active">Persiapan</li>
+        </ol>
+    </nav>
     <div class="col-md-12 search-table-col">
         <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.."></div><span class="counter pull-right"></span><a href="/rab/{{ $proyek->id }}/persiapan/create"><button class="btn btn-primary" type="button">Tambah<i class="fa fa-plus" style="margin-left: 5px;"></i></button></a>
         <div

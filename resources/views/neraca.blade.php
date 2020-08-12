@@ -7,33 +7,34 @@
             <table class="table table-bordered table-hover">
                 <thead class="bill-header cs">
                     <tr>
-                        <th id="trs-hd" class="col-lg" style="width: 7%;">No. Akun</th>
-                        <th id="trs-hd" class="col-lg" style="width: 45%;">Perkiraan/Akun</th>
-                        <th id="trs-hd" class="col-lg" style="width: 15%;">Debit</th>
-                        <th id="trs-hd" class="col-lg" style="width: 15%;">Kredit</th>
-                        <th id="trs-hd" class="col-lg" style="width: 18%;">Saldo</th>
+                        <th id="trs-hd" class="col-lg" style="width: 10%;">No. Akun</th>
+                        <th id="trs-hd" class="col-lg" style="width: 50%;">Perkiraan/Akun</th>
+                        <th id="trs-hd" class="col-lg" style="width: 20%;">Debit</th>
+                        <th id="trs-hd" class="col-lg" style="width: 20%;">Kredit</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($pemasukan as $unit1)
+                    @foreach($pemasukan as $unit1)                  
                         <tr> 
                             <td></td>
-                            <td></td>
-                            <td>Rp {{ number_format($unit1) }}</td>
-                            <td></td>
+                            <td>{{ $unit1->kategori }}</td>
+                            <td>Rp {{ number_format($unit1->jumlah) }}</td>
                             <td></td>
                         </tr>
                     @endforeach
                     @foreach($pengeluaran as $unit2)
                         <tr> 
                             <td></td>
+                            <td>{{ $unit2->kategori }}</td>
                             <td></td>
-                            <td></td>
-                            <td>Rp {{ number_format($unit2) }}</td>
-                            <td></td>
+                            <td>Rp {{ number_format($unit2->jumlah) }}</td>
                         </tr>
                     @endforeach
-                    {{ $pemasukan }} - {{ $pengeluaran }}
+                        <tr class="bg-dark"> 
+                            <td colspan=2 class="text-center" style="color:white;">Jumlah</td>
+                            <td style="color:white;">Rp {{ number_format($sum1) }}</td>
+                            <td style="color:white;">Rp {{ number_format($sum2) }}</td>
+                        </tr>
                 </tbody>
             </table>
     </div>

@@ -51,6 +51,12 @@ Route::post('/pengeluaran/edit/{id}', 'PengeluaranController@update');
 Route::delete('/pengeluaran/{id}', 'PengeluaranController@destroy');
 
 Route::get('/rab', 'RabController@index');
+Route::get('/rab/create', 'RabController@create');
+Route::post('/rab/create', 'RabController@store');
+Route::get('/rab/{id}', 'RabController@show');
+Route::get('/rab/edit/{id}', 'RabController@edit');
+Route::post('/rab/edit/{id}', 'RabController@update');
+Route::delete('/rab/{id}', 'RabController@destroy');
 
 Route::get('/rab/{id}/persiapan', 'PersiapanController@index');
 Route::get('/rab/{id}/persiapan/create', 'PersiapanController@create');
