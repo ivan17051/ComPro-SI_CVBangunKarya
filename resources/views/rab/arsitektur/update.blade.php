@@ -3,7 +3,7 @@
 @section('content2')
     <div class="container border rounded" style="margin-top:15vh; margin-bottom:15vh; box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15) !important;">
     <h1 class="text-center" style="margin:40px;">Edit Arsitektur</h1>
-        <form action="/arsitektur/edit/{{ $unit->id }}" method="POST" enctype="multipart/form-data">
+        <form action="/arsitektur/edit/{{ $unit->id_arsitektur }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
                 <div class="col-md-6 form-group">

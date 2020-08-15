@@ -44,7 +44,7 @@
             
             <div class="d-flex justify-content-center">
                 <button style="margin: 20px; width:200px;" type="submit" name="submit" class="btn btn-primary">Update Data</button>
-                <a href="/pemasukan" style="margin: 20px; width:200px;" class="btn btn-danger">Batal</a>
+                <a href="/struktur" style="margin: 20px; width:200px;" class="btn btn-danger">Batal</a>
             </div>
         </form>
     </div>
