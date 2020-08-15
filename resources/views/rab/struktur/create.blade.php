@@ -14,7 +14,7 @@
                     <label>Kategori</label>
                     <select class="form-control" name="kategori" placeholder="">
                         @foreach($kategori as $unit)
-                        <option value="{{ $unit->nama_kategori }}">{{ $unit->nama_kategori }}</option>
+                        <option value="{{ $unit->kategori }}">{{ $unit->kategori }}</option>
                         @endforeach
                     </select>
                 </div>
