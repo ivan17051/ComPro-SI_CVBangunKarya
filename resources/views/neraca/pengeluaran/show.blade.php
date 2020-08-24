@@ -60,7 +60,7 @@
             </div>
             
             <div class="d-flex justify-content-center">
-                <a href="/pengeluaran" style="margin: 20px; width:200px;" class="btn btn-danger">Kembali</a>
+                <a href="/neraca/{{ $unit->id_proyek }}/pengeluaran" style="margin: 20px; width:200px;" class="btn btn-danger">Kembali</a>
             </div>
         </form>
     </div>

@@ -15,6 +15,7 @@ class CreatePemasukanTable extends Migration
     {
         Schema::create('pemasukan', function (Blueprint $table) {
             $table->increments('id');
+            $table->Integer('id_proyek');
             $table->date('tanggal_pemasukan');
             $table->string('kategori');
             $table->text('deskripsi');

@@ -1,5 +1,6 @@
 <?php
 
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
 Route::get('/aboutus', function () {
@@ -25,38 +26,51 @@ Route::get('/portofolio', function () {
     return view('portofolio');
 });
 
-Route::get('/si', 'NeracaController@index');
+Route::get('/proyek', 'ProyekController@index');
+Route::get('/proyek/create', 'ProyekController@create');
+Route::post('/proyek/create', 'ProyekController@store');
+Route::get('/proyek/{id}', 'ProyekController@show');
+Route::get('/proyek/edit/{id}', 'ProyekController@edit');
+Route::post('/proyek/edit/{id}', 'ProyekController@update');
+Route::delete('/proyek/{id}', 'ProyekController@destroy');
 
-Route::get('/kategori', 'KategoriController@index');
-Route::get('/kategori/create', 'KategoriController@create');
-Route::post('/kategori', 'KategoriController@store');
-Route::get('/kategori/edit/{id}', 'KategoriController@edit');
-Route::post('/kategori/edit/{id}', 'KategoriController@update');
-Route::delete('/kategori/{id}', 'KategoriController@destroy');
+//==============Neraca================
 
-Route::get('/pemasukan', 'PemasukanController@index');
-Route::get('/pemasukan/create', 'PemasukanController@create');
-Route::post('/pemasukan', 'PemasukanController@store');
-Route::get('/pemasukan/{id}', 'PemasukanController@show');
-Route::get('/pemasukan/edit/{id}', 'PemasukanController@edit');
-Route::post('/pemasukan/edit/{id}', 'PemasukanController@update');
-Route::delete('/pemasukan/{id}', 'PemasukanController@destroy');
+Route::get('/neraca/{id}', 'NeracaController@index');
 
-Route::get('/pengeluaran', 'PengeluaranController@index');
-Route::get('/pengeluaran/create', 'PengeluaranController@create');
-Route::post('/pengeluaran', 'PengeluaranController@store');
-Route::get('/pengeluaran/{id}', 'PengeluaranController@show');
-Route::get('/pengeluaran/edit/{id}', 'PengeluaranController@edit');
-Route::post('/pengeluaran/edit/{id}', 'PengeluaranController@update');
-Route::delete('/pengeluaran/{id}', 'PengeluaranController@destroy');
+Route::get('/neraca/{id}/kategori', 'KategoriController@index');
+Route::get('/neraca/{id}/kategori/create', 'KategoriController@create');
+Route::post('/neraca/{id}/kategori/create', 'KategoriController@store');
+Route::get('/neraca/kategori/edit/{id}', 'KategoriController@edit');
+Route::post('/neraca/kategori/edit/{id}', 'KategoriController@update');
+Route::delete('/neraca/kategori/{id}', 'KategoriController@destroy');
 
-Route::get('/rab', 'RabController@index');
-Route::get('/rab/create', 'RabController@create');
-Route::post('/rab/create', 'RabController@store');
-Route::get('/rab/{id}', 'RabController@show');
-Route::get('/rab/edit/{id}', 'RabController@edit');
-Route::post('/rab/edit/{id}', 'RabController@update');
-Route::delete('/rab/{id}', 'RabController@destroy');
+Route::get('/neraca/{id}/pemasukan', 'PemasukanController@index');
+Route::get('/neraca/{id}/pemasukan/create', 'PemasukanController@create');
+Route::post('/neraca/{id}/pemasukan/create', 'PemasukanController@store');
+Route::get('/neraca/pemasukan/{id}', 'PemasukanController@show');
+Route::get('/neraca/pemasukan/edit/{id}', 'PemasukanController@edit');
+Route::post('/neraca/pemasukan/edit/{id}', 'PemasukanController@update');
+Route::delete('/neraca/pemasukan/{id}', 'PemasukanController@destroy');
+
+Route::get('/neraca/{id}/pengeluaran', 'PengeluaranController@index');
+Route::get('/neraca/{id}/pengeluaran/create', 'PengeluaranController@create');
+Route::post('/neraca/{id}/pengeluaran/create', 'PengeluaranController@store');
+Route::get('/neraca/pengeluaran/{id}', 'PengeluaranController@show');
+Route::get('/neraca/pengeluaran/edit/{id}', 'PengeluaranController@edit');
+Route::post('/neraca/pengeluaran/edit/{id}', 'PengeluaranController@update');
+Route::delete('/neraca/pengeluaran/{id}', 'PengeluaranController@destroy');
+
+//==============RAB================
+
+Route::get('/rab/{id}', 'RabController@index');
+
+Route::get('/rab/{id}/kategori', 'KategoriRabController@index');
+Route::get('/rab/{id}/kategori/create', 'KategoriRabController@create');
+Route::post('/rab/{id}/kategori/create', 'KategoriRabController@store');
+Route::get('/rab/kategori/edit/{id}', 'KategoriRabController@edit');
+Route::post('/rab/kategori/edit/{id}', 'KategoriRabController@update');
+Route::delete('/rab/kategori/{id}', 'KategoriRabController@destroy');
 
 Route::get('/rab/{id}/persiapan', 'PersiapanController@index');
 Route::get('/rab/{id}/persiapan/create', 'PersiapanController@create');
@@ -65,3 +79,11 @@ Route::get('/rab/persiapan/{id}', 'PersiapanController@show');
 Route::get('/rab/persiapan/edit/{id}', 'PersiapanController@edit');
 Route::post('/rab/persiapan/edit/{id}', 'PersiapanController@update');
 Route::delete('/rab/persiapan/{id}', 'PersiapanController@destroy');
+
+Route::get('/rab/{id}/mep', 'MepController@index');
+Route::get('/rab/{id}/mep/create', 'MepController@create');
+Route::post('/rab/{id}/mep/create', 'MepController@store');
+Route::get('/rab/mep/{id}', 'MepController@show');
+Route::get('/rab/mep/edit/{id}', 'MepController@edit');
+Route::post('/rab/mep/edit/{id}', 'MepController@update');
+Route::delete('/rab/mep/{id}', 'MepController@destroy');

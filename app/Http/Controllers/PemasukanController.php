@@ -5,38 +5,40 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pemasukan;
 use App\Kategori;
+use App\Proyek;
 
 class PemasukanController extends Controller
 {
-    public function index(){
-        //$pemasukan = Pemasukan::all();
-        $pemasukan = Pemasukan::paginate(20);
+    public function index($id){
+        $pemasukan = Pemasukan::where('id_proyek', $id)->paginate(20);
 
-        return view('pemasukan.index', ['pemasukan' => $pemasukan]);
+        return view('neraca.pemasukan.index', ['proyek' => $id, 'pemasukan' => $pemasukan]);
     }
 
-    public function create(){
-        $kategori = Kategori::where('keterangan', 'Pemasukan')->get();
+    public function create($id){
+        $proyek = Proyek::findOrFail($id);
+        $kategori = Kategori::where('id_proyek', $id)->where('keterangan', 'Pemasukan')->get();
 
-        return view('pemasukan.create', ['kategori' => $kategori]);
+        return view('neraca.pemasukan.create', ['proyek' => $proyek, 'kategori' => $kategori]);
     }
 
     public function show($id){
         $unit = Pemasukan::findOrFail($id);
 
-        return view('pemasukan.show', ['unit' => $unit]);
+        return view('neraca.pemasukan.show', ['unit' => $unit]);
     }
 
     public function edit($id){
         $unit = Pemasukan::findOrFail($id);
         $kategori = Kategori::where('keterangan', 'Pemasukan')->get();
 
-        return view('pemasukan.update', ['unit' => $unit, 'kategori' => $kategori]);
+        return view('neraca.pemasukan.update', ['unit' => $unit, 'kategori' => $kategori]);
     }
 
     public function store(){
         $pemasukan = new Pemasukan();
 
+        $pemasukan->id_proyek = request('id_proyek');
         $pemasukan->tanggal_pemasukan = request('tanggal');
         $pemasukan->deskripsi = request('deskripsi');
         $pemasukan->kategori = request('kategori');
@@ -55,7 +57,7 @@ class PemasukanController extends Controller
 
         $pemasukan->save();
         
-        return redirect('/pemasukan')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->action('PemasukanController@index', ['id' => $pemasukan->id_proyek])->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function destroy($id){
@@ -63,13 +65,14 @@ class PemasukanController extends Controller
 
         $pemasukan->delete();
         
-        return redirect('/pemasukan')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->action('PemasukanController@index', ['id' => $pemasukan->id_proyek])->with('success', 'Data Berhasil Dihapus');
     }
 
     public function update($id){
         $pemasukan = Pemasukan::findOrFail($id);
         $kategori = Kategori::where('keterangan', 'Pemasukan')->get();
 
+        $pemasukan->id_proyek = request('id_proyek');
         $pemasukan->tanggal_pemasukan = request('tanggal');
         $pemasukan->deskripsi = request('deskripsi');
         $pemasukan->kategori = request('kategori');
@@ -86,7 +89,7 @@ class PemasukanController extends Controller
             $pemasukan->upload_bukti = $image_url;
         }
         $pemasukan->update();
-
-        return redirect('/pemasukan')->with('success', 'Data Berhasil Diubah');
+        
+        return redirect()->action('PemasukanController@index', ['id' => $pemasukan->id_proyek])->with('success', 'Data Berhasil Diubah');
     }
 }

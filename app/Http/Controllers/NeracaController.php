@@ -10,20 +10,20 @@ use App\Pengeluaran;
 
 class NeracaController extends Controller
 {
-    public function index(){
+    public function index($id){
         
-        $pemasukan = DB::table('pemasukan')->select(DB::raw('kategori, sum(jumlah_pemasukan_klien) as jumlah'))->groupBy('kategori')->get();
+        $pemasukan = DB::table('pemasukan')->where('id_proyek', $id)->select(DB::raw('kategori, sum(jumlah_pemasukan_klien) as jumlah'))->groupBy('kategori')->get();
         // $pemasukan = Pemasukan::all()->groupBy('kategori')->map(function ($row){
         //     return $row->sum('jumlah_pemasukan_klien');
         // });
-        $sum1 = Pemasukan::sum('jumlah_pemasukan_klien');
+        $sum1 = Pemasukan::where('id_proyek', $id)->sum('jumlah_pemasukan_klien');
 
-        $pengeluaran = DB::table('pengeluaran')->select(DB::raw('kategori, sum(jumlah) as jumlah'))->groupBy('kategori')->get();
+        $pengeluaran = DB::table('pengeluaran')->where('id_proyek', $id)->select(DB::raw('kategori, sum(jumlah) as jumlah'))->groupBy('kategori')->get();
         // $pengeluaran = Pengeluaran::all()->groupBy('kategori')->map(function ($row){
         //     return $row->sum('jumlah');
         // });
-        $sum2 = Pengeluaran::sum('jumlah');
+        $sum2 = Pengeluaran::where('id_proyek', $id)->sum('jumlah');
 
-        return view('neraca', ['pemasukan' => $pemasukan, 'pengeluaran' => $pengeluaran, 'sum1' => $sum1, 'sum2' => $sum2]);
+        return view('neraca.neraca', ['pemasukan' => $pemasukan, 'pengeluaran' => $pengeluaran, 'sum1' => $sum1, 'sum2' => $sum2]);
     }
 }

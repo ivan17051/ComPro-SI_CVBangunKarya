@@ -4,46 +4,51 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kategori;
+use App\Proyek;
 
 class KategoriController extends Controller
 {
-    public function index(){
-        //$pemasukan = Pemasukan::all();
-        $kategori = Kategori::paginate(20);
+    public function index($id){
+        $kategori = Kategori::where('id_proyek', $id)->paginate(20);
+        $proyek = Proyek::findOrFail($id);
 
-        return view('kategori.index', ['kategori' => $kategori]);
+        return view('neraca.kategori.index', ['kategori' => $kategori, 'proyek' => $proyek]);
     }
 
-    public function create(){
-        return view('kategori.create');
+    public function create($id){
+        $proyek = Proyek::findOrFail($id);
+        
+        return view('neraca.kategori.create', ['proyek' => $proyek]);
     }
 
-    public function store(){
+    public function store($id){
         $kategori = new Kategori();
-
+        
+        $kategori->id_proyek = request('id_proyek');
         $kategori->nama_kategori = request('nama');
         $kategori->keterangan = request('keterangan');
 
         $kategori->save();
 
-        return redirect('/kategori')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->action('KategoriController@index', ['id' => $id])->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function edit($id){
         $kategori = Kategori::findOrFail($id);
 
-        return view('kategori.update', ['unit' => $kategori]);
+        return view('neraca.kategori.update', ['unit' => $kategori]);
     }
 
     public function update($id){
         $kategori = Kategori::findOrFail($id);
 
+        $kategori->id_proyek = request('id_proyek');
         $kategori->nama_kategori = request('nama');
         $kategori->keterangan = request('keterangan');
         
         $kategori->update();
 
-        return redirect('/kategori')->with('success', 'Data Berhasil Diubah');
+        return redirect()->action('KategoriController@index', ['id' => $kategori->id_proyek])->with('success', 'Data Berhasil Diubah');
     }
 
     public function destroy($id){
@@ -51,6 +56,6 @@ class KategoriController extends Controller
 
         $kategori->delete();
         
-        return redirect('/kategori')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->action('KategoriController@index', ['id' => $kategori->id_proyek])->with('success', 'Data Berhasil Dihapus');
     }
 }

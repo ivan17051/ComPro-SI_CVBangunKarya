@@ -3,22 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Persiapan;
-use App\Proyek;
+use App\RAB;
 use App\KategoriRab;
 
-class PersiapanController extends Controller
+class MepController extends Controller
 {
     public function index($id){
         $persiapan = Persiapan::where('id_proyek', $id)->paginate(20);
-        $proyek = Proyek::findOrFail($id);
+        $proyek = RAB::findOrFail($id);
 
         return view('rab.persiapan.index', ['persiapan' => $persiapan, 'proyek' => $proyek]);
     }
 
     public function create($id){
         $kategori = KategoriRab::where('id_proyek', $id)->where('keterangan', 'Persiapan')->get();
-        $proyek = Proyek::findOrFail($id);
+        $proyek = Rab::findOrFail($id);
 
         return view('rab.persiapan.create', ['proyek' => $proyek, 'kategori' => $kategori]);
     }
@@ -75,4 +74,5 @@ class PersiapanController extends Controller
 
         return redirect()->action('PersiapanController@index', ['id' => $persiapan->id_proyek])->with('success', 'Data Berhasil Diubah');
     }
+
 }

@@ -14,7 +14,8 @@ class CreateMepTable extends Migration
     public function up()
     {
         Schema::create('mep', function (Blueprint $table) {
-            $table->increments('id_mep');
+            $table->increments('id');
+            $table->Integer('id_proyek');
             $table->string('uraian');
             $table->string('kategori');
             $table->bigInteger('volume');

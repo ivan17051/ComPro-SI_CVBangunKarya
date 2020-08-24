@@ -15,6 +15,7 @@ class CreateKategoriTable extends Migration
     {
         Schema::create('kategori', function (Blueprint $table) {
             $table->increments('id');
+            $table->Integer('id_proyek');
             $table->string('nama_kategori');
             $table->string('keterangan');
             $table->timestamps();

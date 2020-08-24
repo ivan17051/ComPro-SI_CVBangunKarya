@@ -17,7 +17,6 @@ class CreateProyekTable extends Migration
             $table->increments('id');
             $table->string('nama_proyek');
             $table->string('lokasi');
-            $table->bigInteger('total');
             $table->timestamps();
         });
     }
