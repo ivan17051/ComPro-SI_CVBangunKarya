@@ -14,7 +14,8 @@ class CreateStrukturTable extends Migration
     public function up()
     {
         Schema::create('struktur', function (Blueprint $table) {
-            $table->increments('id_struktur');
+            $table->increments('id');
+            $table->Integer('id_proyek');
             $table->string('uraian');
             $table->string('kategori');
             $table->bigInteger('volume');

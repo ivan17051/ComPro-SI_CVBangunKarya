@@ -54,10 +54,10 @@
                 </div>
                 <div class="col">
                     <label>Bukti</label>
-                    <div class="input-group">
+                    <div class="input-group mb-3">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="bukti">
-                            <label class="custom-file-label">Pilih File</label>
+                            <input type="file" class="custom-file-input" name="bukti" id="inputGroupFile01">
+                            <label class="custom-file-label" for="inputGroupFile01">Pilih File</label>
                         </div>
                     </div>
                 </div>

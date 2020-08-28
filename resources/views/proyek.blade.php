@@ -10,8 +10,10 @@
                 <thead class="bill-header cs">
                     <tr>
                         <th id="trs-hd" class="col" style="width: 2%;">#</th>
-                        <th id="trs-hd" class="col" style="width: 30%;">Nama Proyek</th>
-                        <th id="trs-hd" class="col" style="width: 48%;">Lokasi</th>
+                        <th id="trs-hd" class="col" style="width: 20%;">Nama Proyek</th>
+                        <th id="trs-hd" class="col" style="width: 30%;">Lokasi</th>
+                        <th id="trs-hd" class="col" style="width: 14%;">Tgl. Mulai</th>
+                        <th id="trs-hd" class="col" style="width: 14%;">Tgl. Selesai</th>
                         <th id="trs-hd" class="col" style="width: 20%;">Action</th>
                     </tr>
                 </thead>
@@ -26,6 +28,8 @@
                         <td>{{ $unit->id }}</td>
                         <td>{{ $unit->nama_proyek }}</td>
                         <td>{{ $unit->lokasi }}</td>
+                        <td></td>
+                        <td></td>
                         <td>
                             <div class="row">
                                 <div class="col-sm" style="padding-left:12px; padding-right:2px;">
@@ -53,57 +57,88 @@
                         </td>
                     </tr>
                     <tr class="collapse" id="collapseExample{{ $unit->id }}">
-                        <td colspan=4>
+                        <td colspan=6>
                             <div class="collapse" id="collapseExample{{ $unit->id }}">
-                                        
                                 <div class="row">
-                                    <div class="col-5">
+                                    <div class="col">
                                         <div class="card">
-                                            <div class="card-header">
+                                            <div class="card-header" style="padding-bottom:0px;">
                                                 <div class="row">
                                                     <div class="col">
-                                                        <h4 class="card-title" style="margin-top:5px;">Neraca Saldo</h4>
+                                                        <h5 class="card-title" style="margin-top:5px;">Detail Klien</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <p class="card-text" style="font-size:15px; margin-bottom:-5px;">Email Klien:</p>
+                                                <p class="card-text">email@klien.com</p>
+                                                <p class="card-text" style="font-size:15px; margin-bottom:-5px;">No. HP Klien:</p>
+                                                <p class="card-text">031-217440</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="card-title">Progress Pengerjaan</h6>
+                                        <div class="progress" style="margin-bottom:20px;">
+                                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                                        </div>
+                                    
+                                        <h6 class="card-title">Progress Keuangan</h6>
+                                        <div class="progress" style="margin-bottom:20px;">
+                                            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="row" style="margin-top:15px;">
+                                    <div class="col-5">
+                                        <div class="card">
+                                            <div class="card-header" style="padding-bottom:0px;">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <h5 class="card-title" style="margin-top:5px;">Neraca Saldo</h5>
                                                     </div>
                                                     <div class="col text-right">
-                                                        <a href="/neraca/{{ $unit->id }}" type="button" class="btn btn-info">Lihat Neraca<i class="fa fa-eye" style="font-size: 13px; margin-left: 5px;"></i></a>
+                                                        <a href="/neraca/{{ $unit->id }}" type="button" class="btn btn-info btn-sm">Lihat Neraca<i class="fa fa-eye" style="font-size: 13px; margin-left: 5px;"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <div class="btn-group" style="width:100%" role="group" aria-label="Basic example">
-                                                    <a href="/neraca/{{ $unit->id }}/kategori" type="button" class="btn btn-dark">Kategori</a>
-                                                    <a href="/neraca/{{ $unit->id }}/pemasukan" type="button" class="btn btn-outline-primary">Pemasukan</a>
-                                                    <a href="/neraca/{{ $unit->id }}/pengeluaran" type="button" class="btn btn-outline-secondary">Pengeluaran</a>
+                                                    <a href="/neraca/{{ $unit->id }}/kategori" type="button" class="btn btn-dark btn-sm">Kategori</a>
+                                                    <a href="/neraca/{{ $unit->id }}/pemasukan" type="button" class="btn btn-outline-primary btn-sm">Pemasukan</a>
+                                                    <a href="/neraca/{{ $unit->id }}/pengeluaran" type="button" class="btn btn-outline-secondary btn-sm">Pengeluaran</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="card text-center">
-                                            <div class="card-header">
+                                        <div class="card">
+                                            <div class="card-header" style="padding-bottom:0px;">
                                                 <div class="row">
                                                         <div class="col">
-                                                            <h4 class="card-title" style="margin-top:5px;">Rencana Anggaran Belanja</h4>
+                                                            <h5 class="card-title" style="margin-top:5px;">Rencana Anggaran Belanja</h5>
                                                         </div>
                                                         <div class="col text-right">
-                                                            <a href="/rab/{{ $unit->id }}" type="button" class="btn btn-info">Lihat Rekap RAB<i class="fa fa-eye" style="font-size: 13px; margin-left: 5px;"></i></a>
+                                                            <a href="/rab/{{ $unit->id }}" type="button" class="btn btn-info btn-sm">Lihat Rekap RAB<i class="fa fa-eye" style="font-size: 13px; margin-left: 5px;"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             <div class="card-body">
                                                 <div class="btn-group" style="width:100%" role="group" aria-label="Basic example">
-                                                    <a href="/rab/{{ $unit->id }}/kategori" type="button" class="btn btn-dark">Kategori</a>
-                                                    <a href="/rab/{{ $unit->id }}/persiapan" type="button" class="btn btn-outline-primary">Persiapan</a>
-                                                    <a href="/rab/{{ $unit->id }}/arsitektur" type="button" class="btn btn-outline-secondary">Arsitektur</a>
-                                                    <a href="/rab/{{ $unit->id }}/struktur" type="button" class="btn btn-outline-success">Struktur</a>
-                                                    <a href="/rab/{{ $unit->id }}/mep" type="button" class="btn btn-outline-danger">MEP</a>
+                                                    <a href="/rab/{{ $unit->id }}/kategori" type="button" class="btn btn-dark btn-sm">Kategori</a>
+                                                    <a href="/rab/{{ $unit->id }}/persiapan" type="button" class="btn btn-outline-primary btn-sm">Persiapan</a>
+                                                    <a href="/rab/{{ $unit->id }}/arsitektur" type="button" class="btn btn-outline-secondary btn-sm">Arsitektur</a>
+                                                    <a href="/rab/{{ $unit->id }}/struktur" type="button" class="btn btn-outline-success btn-sm">Struktur</a>
+                                                    <a href="/rab/{{ $unit->id }}/mep" type="button" class="btn btn-outline-danger btn-sm">MEP</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                    
+                            
                             </div>
+
                         </td>
                     </tr>
                     

@@ -14,12 +14,13 @@ class CreateArsitekturTable extends Migration
     public function up()
     {
         Schema::create('arsitektur', function (Blueprint $table) {
-            $table->increments('id_arsitektur');
+            $table->increments('id');
+            $table->Integer('id_proyek');
             $table->string('uraian');
             $table->string('kategori');
-            $table->bigInteger('volume');
+            $table->Integer('volume');
             $table->string('satuan');
-            $table->bigInteger('harga_satuan');
+            $table->Integer('harga_satuan');
             $table->bigInteger('jumlah');
             $table->timestamps();
         });

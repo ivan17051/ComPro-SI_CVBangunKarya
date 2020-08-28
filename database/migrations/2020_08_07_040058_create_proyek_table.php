@@ -17,6 +17,10 @@ class CreateProyekTable extends Migration
             $table->increments('id');
             $table->string('nama_proyek');
             $table->string('lokasi');
+            $table->string('no_hp');
+            $table->string('email_klien');
+            $table->string('tgl_mulai');
+            $table->string('tgl_selesai');
             $table->timestamps();
         });
     }
