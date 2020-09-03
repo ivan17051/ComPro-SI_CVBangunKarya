@@ -83,6 +83,22 @@ Route::get('/rab/persiapan/edit/{id}', 'PersiapanController@edit');
 Route::post('/rab/persiapan/edit/{id}', 'PersiapanController@update');
 Route::delete('/rab/persiapan/{id}', 'PersiapanController@destroy');
 
+Route::get('/rab/{id}/arsitektur', 'ArsitekturController@index');
+Route::get('/rab/{id}/arsitektur/create', 'ArsitekturController@create');
+Route::post('/rab/{id}/arsitektur/create', 'ArsitekturController@store');
+Route::get('/rab/arsitektur/{id}', 'ArsitekturController@show');
+Route::get('/rab/arsitektur/edit/{id}', 'ArsitekturController@edit');
+Route::post('/rab/arsitektur/edit/{id}', 'ArsitekturController@update');
+Route::delete('/rab/arsitektur/{id}', 'ArsitekturController@destroy');
+
+Route::get('/rab/{id}/struktur', 'StrukturController@index');
+Route::get('/rab/{id}/struktur/create', 'StrukturController@create');
+Route::post('/rab/{id}/struktur/create', 'StrukturController@store');
+Route::get('/rab/struktur/{id}', 'StrukturController@show');
+Route::get('/rab/struktur/edit/{id}', 'StrukturController@edit');
+Route::post('/rab/struktur/edit/{id}', 'StrukturController@update');
+Route::delete('/rab/struktur/{id}', 'StrukturController@destroy');
+
 Route::get('/rab/{id}/mep', 'MepController@index');
 Route::get('/rab/{id}/mep/create', 'MepController@create');
 Route::post('/rab/{id}/mep/create', 'MepController@store');

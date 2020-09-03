@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Struktur;
-use App\RAB;
+use App\Proyek;
 use App\KategoriRab;
 
 class StrukturController extends Controller
 {
     public function index($id){
-        $struktur = Struktur::where('id_struktur', $id)->paginate(20);
-        $proyek = RAB::findOrFail($id);
+        $struktur = Struktur::where('id_proyek', $id)->paginate(20);
+        $proyek = Proyek::findOrFail($id);
 
         return view('rab.struktur.index', ['struktur' => $struktur, 'proyek' => $proyek]);
     }
 
     public function create($id){
         $kategori = KategoriRab::where('id_proyek', $id)->where('keterangan', 'Struktur')->get();
-        $proyek = Rab::findOrFail($id);
+        $proyek = Proyek::findOrFail($id);
 
         return view('rab.struktur.create', ['proyek' => $proyek, 'kategori' => $kategori]);
     }
@@ -38,13 +38,13 @@ class StrukturController extends Controller
 
     public function store($id){
         $struktur = new Struktur();
-
-        $struktur->id_proyek = request('id_struktur');
+        
+        $struktur->id_proyek = request('id_proyek');
         $struktur->uraian = request('uraian');
         $struktur->kategori = request('kategori');
         $struktur->volume = request('volume');
         $struktur->satuan = request('satuan');
-        $struktur->harga_satuan = request('harga');
+        $struktur->harga_satuan = request('harga_satuan');
         $struktur->jumlah = request('jumlah');
 
         $struktur->save();
@@ -57,7 +57,7 @@ class StrukturController extends Controller
 
         $struktur->delete();
         
-        return redirect()->action('StrukturController@index', ['id' => $struktur->id_struktur])->with('success', 'Data Berhasil Dihapus');
+        return redirect()->action('StrukturController@index', ['id' => $struktur->id_proyek])->with('success', 'Data Berhasil Dihapus');
     }
 
     public function update($id){
@@ -73,6 +73,6 @@ class StrukturController extends Controller
         
         $struktur->update();
 
-        return redirect()->action('StrukturController@index', ['id' => $struktur->id_struktur])->with('success', 'Data Berhasil Diubah');
+        return redirect()->action('StrukturController@index', ['id' => $struktur->id])->with('success', 'Data Berhasil Diubah');
     }
 }

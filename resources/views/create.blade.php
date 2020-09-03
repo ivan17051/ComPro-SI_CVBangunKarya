@@ -15,6 +15,37 @@
                 <textarea class="form-control" name="lokasi" id="" cols="30" rows="5" required></textarea>
             </div>
 
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Email Klien</label>
+                        <input type="email" class="form-control" name="email_klien" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>No. HP Klien</label>
+                        <input type="text" class="form-control" name="hp_klien" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Tanggal Mulai</label>
+                        <input type="date" class="form-control" name="tgl_mulai" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Perkiraan Tanggal Selesai</label>
+                        <input type="date" class="form-control" name="tgl_selesai" required>
+                    </div>
+                </div>
+            </div>
+            
+
             <input type="text" name="total" value="0" hidden>
 
             <div class="d-flex justify-content-center">

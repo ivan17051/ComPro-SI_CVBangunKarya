@@ -3,76 +3,77 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RAB;
+use App\Proyek;
 use App\KategoriRab;
+use App\MEP;
 
 class MepController extends Controller
 {
     public function index($id){
-        $persiapan = Persiapan::where('id_proyek', $id)->paginate(20);
-        $proyek = RAB::findOrFail($id);
+        $mep = MEP::where('id_proyek', $id)->paginate(20);
+        $proyek = Proyek::findOrFail($id);
 
-        return view('rab.persiapan.index', ['persiapan' => $persiapan, 'proyek' => $proyek]);
+        return view('rab.mep.index', ['mep' => $mep, 'proyek' => $proyek]);
     }
 
     public function create($id){
-        $kategori = KategoriRab::where('id_proyek', $id)->where('keterangan', 'Persiapan')->get();
-        $proyek = Rab::findOrFail($id);
+        $kategori = KategoriRab::where('id_proyek', $id)->where('keterangan', 'MEP')->get();
+        $proyek = Proyek::findOrFail($id);
 
-        return view('rab.persiapan.create', ['proyek' => $proyek, 'kategori' => $kategori]);
+        return view('rab.mep.create', ['proyek' => $proyek, 'kategori' => $kategori]);
     }
 
     public function show($id){
-        $persiapan = Persiapan::findOrFail($id);
+        $persiapan = MEP::findOrFail($id);
 
-        return view('rab.persiapan.show', ['unit' => $persiapan]);
+        return view('rab.mep.show', ['unit' => $persiapan]);
     }
 
     public function edit($id){
-        $unit = Persiapan::findOrFail($id);
-        $kategori = KategoriRab::where('id_proyek', $unit->id_proyek )->where('keterangan', 'Persiapan')->get();
+        $unit = MEP::findOrFail($id);
+        $kategori = KategoriRab::where('id_proyek', $unit->id_proyek )->where('keterangan', 'MEP')->get();
 
-        return view('rab.persiapan.update', ['unit' => $unit, 'kategori' => $kategori]);
+        return view('rab.mep.update', ['unit' => $unit, 'kategori' => $kategori]);
     }
 
     public function store($id){
-        $persiapan = new Persiapan();
+        $mep = new MEP();
 
-        $persiapan->id_proyek = request('id_proyek');
-        $persiapan->uraian = request('uraian');
-        $persiapan->kategori = request('kategori');
-        $persiapan->volume = request('volume');
-        $persiapan->satuan = request('satuan');
-        $persiapan->harga_satuan = request('harga');
-        $persiapan->jumlah = request('jumlah');
+        $mep->id_proyek = request('id_proyek');
+        $mep->uraian = request('uraian');
+        $mep->kategori = request('kategori');
+        $mep->volume = request('volume');
+        $mep->satuan = request('satuan');
+        $mep->harga_satuan = request('harga');
+        $mep->jumlah = request('jumlah');
 
-        $persiapan->save();
+        $mep->save();
         
-        return redirect()->action('PersiapanController@index', ['id' => $id])->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->action('MepController@index', ['id' => $id])->with('success', 'Data Berhasil Ditambahkan');
     }
 
     public function destroy($id){
-        $persiapan = Persiapan::findOrFail($id);
+        $mep = MEP::findOrFail($id);
 
-        $persiapan->delete();
+        $mep->delete();
         
-        return redirect()->action('PersiapanController@index', ['id' => $persiapan->id_proyek])->with('success', 'Data Berhasil Dihapus');
+        return redirect()->action('MepController@index', ['id' => $mep->id_proyek])->with('success', 'Data Berhasil Dihapus');
     }
 
     public function update($id){
-        $persiapan = Persiapan::findOrFail($id);
+        $mep = MEP::findOrFail($id);
         
-        $persiapan->id_proyek = request('id_proyek');
-        $persiapan->uraian = request('uraian');
-        $persiapan->kategori = request('kategori');
-        $persiapan->volume = request('volume');
-        $persiapan->satuan = request('satuan');
-        $persiapan->harga_satuan = request('harga');
-        $persiapan->jumlah = request('jumlah');
+        $mep->id_proyek = request('id_proyek');
+        $mep->uraian = request('uraian');
+        $mep->kategori = request('kategori');
+        $mep->volume = request('volume');
+        $mep->satuan = request('satuan');
+        $mep->harga_satuan = request('harga');
+        $mep->jumlah = request('jumlah');
         
-        $persiapan->update();
+        $mep->update();
 
-        return redirect()->action('PersiapanController@index', ['id' => $persiapan->id_proyek])->with('success', 'Data Berhasil Diubah');
+        return redirect()->action('MepController@index', ['id' => $mep->id_proyek])->with('success', 'Data Berhasil Diubah');
     }
 
 }

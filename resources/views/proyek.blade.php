@@ -28,8 +28,8 @@
                         <td>{{ $unit->id }}</td>
                         <td>{{ $unit->nama_proyek }}</td>
                         <td>{{ $unit->lokasi }}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $unit->tgl_mulai }}</td>
+                        <td>{{ $unit->tgl_selesai }}</td>
                         <td>
                             <div class="row">
                                 <div class="col-sm" style="padding-left:12px; padding-right:2px;">
@@ -71,9 +71,9 @@
                                             </div>
                                             <div class="card-body">
                                                 <p class="card-text" style="font-size:15px; margin-bottom:-5px;">Email Klien:</p>
-                                                <p class="card-text">email@klien.com</p>
+                                                <p class="card-text">{{ $unit->email_klien }}</p>
                                                 <p class="card-text" style="font-size:15px; margin-bottom:-5px;">No. HP Klien:</p>
-                                                <p class="card-text">031-217440</p>
+                                                <p class="card-text">{{ $unit->no_hp }}</p>
                                             </div>
                                         </div>
                                     </div>

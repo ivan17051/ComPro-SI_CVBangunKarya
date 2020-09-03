@@ -7,23 +7,30 @@
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label>Uraian</label>
-                    <p class="border rounded" style="padding:5px;">{{ $unit->uaraian }}</p>
+                    <p class="border rounded" style="padding:5px;">{{ $unit->uraian }}</p>
                 </div>
                 <div class="col-md-6 form-group">
                     <label>Kategori</label>
                     <p class="border rounded" style="padding:5px;">{{ $unit->kategori }}</p>
                 </div>
             </div>
-
-            <div class="form-group">
-                <label>Volume</label>
-                <p class="border rounded" style="padding:5px; height:150px;">{{ $unit->volume }}</p>
-            </div> 
-
-            <div class="form-group">
-                <label>Satuan</label>
-                <p class="border rounded" style="padding:5px; height:150px;">{{ $unit->satuan }}</p>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Volume</label>
+                        <p class="border rounded" style="padding:5px;">{{ $unit->volume }}</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Satuan</label>
+                        <p class="border rounded" style="padding:5px;">{{ $unit->satuan }}</p>
+                    </div>
+                </div>
             </div>
+            
+
+            
 
             <div class="form-group">
                 <label>Harga Satuan</label>
@@ -38,7 +45,7 @@
             </div>
             
             <div class="d-flex justify-content-center">
-                <a href="/pemasukan" style="margin: 20px; width:200px;" class="btn btn-danger">Kembali</a>
+                <a href="/rab/{{ $unit->id_proyek }}/arsitektur" style="margin: 20px; width:200px;" class="btn btn-danger">Kembali</a>
             </div>
         </form>
     </div>

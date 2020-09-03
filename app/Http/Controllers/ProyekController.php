@@ -43,6 +43,10 @@ class ProyekController extends Controller
 
         $proyek->nama_proyek = request('nama_proyek');
         $proyek->lokasi = request('lokasi');
+        $proyek->no_hp = request('hp_klien');
+        $proyek->email_klien = request('email_klien');
+        $proyek->tgl_mulai = request('tgl_mulai');
+        $proyek->tgl_selesai = request('tgl_selesai');
 
         $proyek->save();
         
@@ -60,6 +64,10 @@ class ProyekController extends Controller
 
         $proyek->nama_proyek = request('nama_proyek');
         $proyek->lokasi = request('lokasi');
+        $proyek->no_hp = request('hp_klien');
+        $proyek->email_klien = request('email_klien');
+        $proyek->tgl_mulai = request('tgl_mulai');
+        $proyek->tgl_selesai = request('tgl_selesai');
         
         $proyek->update();
 
