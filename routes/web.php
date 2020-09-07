@@ -66,7 +66,7 @@ Route::delete('/neraca/pengeluaran/{id}', 'PengeluaranController@destroy');
 
 //==============RAB================
 
-Route::get('/rab/{id}', 'RabController@index');
+Route::get('/rab/{id}', 'RekapRabController@index');
 
 Route::get('/rab/{id}/kategori', 'KategoriRabController@index');
 Route::get('/rab/{id}/kategori/create', 'KategoriRabController@create');

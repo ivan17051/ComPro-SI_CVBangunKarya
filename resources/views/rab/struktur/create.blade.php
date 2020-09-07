@@ -6,10 +6,7 @@
         <form action="/rab/{{ $proyek->id }}/struktur/create" method="POST" enctype="multipart/form-data">
         @csrf
             <input type="text" name="id_proyek" value="{{ $proyek->id }}" hidden>
-            <div class="form-group">
-                <label>Uraian</label>
-                <input type="text" class="form-control" name="uraian" required>
-            </div>
+            
             <div class="form-group">
                 <label>Kategori</label>
                 <select class="form-control" name="kategori" placeholder="">
@@ -18,7 +15,10 @@
                     @endforeach
                 </select>
             </div>
-        
+            <div class="form-group">
+                <label>Uraian</label>
+                <input type="text" class="form-control" name="uraian" required>
+            </div>
             <div class="row">
                 <div class="col">
                     <div class="form-group">

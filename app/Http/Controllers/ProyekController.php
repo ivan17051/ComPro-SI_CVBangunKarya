@@ -6,14 +6,30 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Proyek;
 use App\Persiapan;
+use App\Arsitektur;
+use App\Struktur;
+use App\Pengeluaran;
 use App\MEP;
 
 class ProyekController extends Controller
 {
     public function index(){
         $proyek = Proyek::paginate(20);
-
-        return view('proyek', ['proyek' => $proyek]);
+        
+        // $sumper = Persiapan::where('id_proyek', $id)->sum('jumlah');
+        $sumper = DB::table('persiapan')->select(DB::raw('id_proyek, sum(jumlah) as jum'))->groupBy('id_proyek')->get();
+        // $sumar = Arsitektur::where('id_proyek', $id)->sum('jumlah');
+        $sumar = DB::table('arsitektur')->select(DB::raw('id_proyek, sum(jumlah) as jum'))->groupBy('id_proyek')->get();
+        // $sumstr = Struktur::where('id_proyek', $id)->sum('jumlah');
+        $sumstr = DB::table('struktur')->select(DB::raw('id_proyek, sum(jumlah) as jum'))->groupBy('id_proyek')->get();
+        // $summep = MEP::where('id_proyek', $id)->sum('jumlah');
+        $summep = DB::table('mep')->select(DB::raw('id_proyek, sum(jumlah) as jum'))->groupBy('id_proyek')->get();
+        
+        // $pengeluaran = Pengeluaran::where('id_proyek', $id)->sum('jumlah');
+        $pengeluaran = DB::table('pengeluaran')->select(DB::raw('id_proyek, sum(jumlah) as jum'))->groupBy('id_proyek')->get();
+        // $total = round($pengeluaran/($sumper + $sumar + $sumstr + $summep) * 100);
+        
+        return view('proyek', ['proyek' => $proyek, 'sumper' => $sumper, 'sumar' => $sumar, 'sumstr' => $sumstr, 'summep' => $summep, 'pengeluaran' => $pengeluaran]);
     }
 
     public function create(){

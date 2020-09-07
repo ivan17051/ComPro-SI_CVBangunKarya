@@ -59,8 +59,8 @@
                     <tr class="collapse" id="collapseExample{{ $unit->id }}">
                         <td colspan=6>
                             <div class="collapse" id="collapseExample{{ $unit->id }}">
-                                <div class="row">
-                                    <div class="col">
+                                <div class="card-deck">
+                                    <!-- <div class="col"> -->
                                         <div class="card">
                                             <div class="card-header" style="padding-bottom:0px;">
                                                 <div class="row">
@@ -70,23 +70,79 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <p class="card-text" style="font-size:15px; margin-bottom:-5px;">Email Klien:</p>
-                                                <p class="card-text">{{ $unit->email_klien }}</p>
-                                                <p class="card-text" style="font-size:15px; margin-bottom:-5px;">No. HP Klien:</p>
-                                                <p class="card-text">{{ $unit->no_hp }}</p>
+                                                <p class="card-text" style="font-size:15px; margin-bottom:-3px;">Email Klien:</p>
+                                                <p class="card-text" style="font-size:18px;"><b>{{ $unit->email_klien }}</b></p>
+                                                <p class="card-text" style="font-size:15px; margin-bottom:-3px;">No. HP Klien:</p>
+                                                <p class="card-text" style="font-size:18px;"><b>{{ $unit->no_hp }}</b></p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                        <h6 class="card-title">Progress Pengerjaan</h6>
-                                        <div class="progress" style="margin-bottom:20px;">
-                                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-                                        </div>
-                                    
-                                        <h6 class="card-title">Progress Keuangan</h6>
-                                        <div class="progress" style="margin-bottom:20px;">
-                                            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                                        </div>
+                                    <!-- </div> -->
+
+                                    <!-- <div class="col"> -->
+                                        <div class="card">
+                                            <div class="card-header" style="padding-bottom:0px;">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <h5 class="card-title" style="margin-top:5px;">Progress</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                @php
+                                                    $date1 = strtotime( $unit->tgl_mulai );
+                                                    $date2 = strtotime( $unit->tgl_selesai );
+                                                    $today = time();
+
+                                                    $dateDiff = $date2 - $date1;
+                                                    $dateDiffForToday = $today - $date1;
+
+                                                    $percentage = round($dateDiffForToday / $dateDiff * 100);
+                                                @endphp
+                                                <h6 class="card-title">Progress Pengerjaan</h6>
+                                                <div class="progress" style="margin-bottom:20px;">
+                                                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{ $percentage }}%" aria-valuenow="{{ $percentage }}" aria-valuemin="0" aria-valuemax="100">{{ $percentage }}%</div>
+                                                </div>
+                                                @php
+                                                    $checkPer = count($sumper->where('id_proyek', $unit->id));
+                                                    if($checkPer == 0) $sumper1=0;
+                                                    elseif($checkPer != 0){
+                                                        $sumper1 = $sumper->where('id_proyek', $unit->id)->first()->jum;
+                                                    }
+
+                                                    $checkAr = count($sumar->where('id_proyek', $unit->id));
+                                                    if($checkAr == 0) $sumar1=0;
+                                                    elseif($checkAr != 0){
+                                                        $sumar1 = $sumar->where('id_proyek', $unit->id)->first()->jum;
+                                                    }
+
+                                                    $checkStr = count($sumstr->where('id_proyek', $unit->id));
+                                                    if($checkStr == 0) $sumstr1=0;
+                                                    elseif($checkStr != 0){
+                                                        $sumstr1 = $sumstr->where('id_proyek', $unit->id)->first()->jum;
+                                                    }
+
+                                                    $checkMEP = count($summep->where('id_proyek', $unit->id));
+                                                    if($checkMEP == 0) $summep1=0;
+                                                    elseif($checkMEP != 0){
+                                                        $summep1 = $summep->where('id_proyek', $unit->id)->first()->jum;
+                                                    }
+                                                    
+                                                    $checkP = count($pengeluaran->where('id_proyek', $unit->id));
+                                                    if($checkP == 0) $pengeluaran1=0;
+                                                    elseif($checkP != 0){
+                                                        $pengeluaran1 = $pengeluaran->where('id_proyek', $unit->id)->first()->jum;
+                                                    }
+                                                    
+                                                    $total = round($pengeluaran1/($sumper1 + $sumar1 + $sumstr1 + $summep1)*100);
+                                                @endphp
+                                                <h6 class="card-title">Progress Keuangan</h6>
+                                                <div class="progress" style="margin-bottom:10px;">
+                                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: {{ $total }}%" aria-valuenow="{{ $total }}" aria-valuemin="0" aria-valuemax="100">{{ $total }}%</div>
+                                                </div>
+                                                
+                                            </div>
+                                        <!-- </div> -->
+                                        
                                     </div>
                                 </div>
                             

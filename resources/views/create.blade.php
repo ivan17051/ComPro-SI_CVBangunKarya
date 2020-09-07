@@ -44,9 +44,6 @@
                     </div>
                 </div>
             </div>
-            
-
-            <input type="text" name="total" value="0" hidden>
 
             <div class="d-flex justify-content-center">
                 <button style="margin: 20px; width:200px;" type="submit" name="submit" class="btn btn-primary">Simpan Data</button>

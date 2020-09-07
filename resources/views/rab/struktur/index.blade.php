@@ -40,7 +40,7 @@
                                     </form>
                                 </div>
                                 <div class="col-sm" style="padding-left:2px; padding-right:2px;">
-                                    <form action="rab/struktur/edit/{{ $unit->id }}" method="GET">
+                                    <form action="/rab/struktur/edit/{{ $unit->id }}" method="GET">
                                         @csrf
                                         <button class="btn btn-success btn-sm" style="width: 100%; font-size:12px;">Edit<i class="fa fa-edit" style="font-size: 13px; margin-left: 5px;"></i></button>
                                     </form>

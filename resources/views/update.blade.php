@@ -15,6 +15,36 @@
                 <textarea class="form-control" name="lokasi" id="" cols="30" rows="5" required>{{ $unit->lokasi }}</textarea>
             </div>
 
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Email Klien</label>
+                        <input type="email" class="form-control" name="email_klien" value="{{ $unit->email_klien }}" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>No. HP Klien</label>
+                        <input type="text" class="form-control" name="hp_klien" value="{{ $unit->no_hp }}" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Tanggal Mulai</label>
+                        <input type="date" class="form-control" name="tgl_mulai" value="{{ $unit->tgl_mulai }}" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Perkiraan Tanggal Selesai</label>
+                        <input type="date" class="form-control" name="tgl_selesai" value="{{ $unit->tgl_selesai }}" required>
+                    </div>
+                </div>
+            </div>
+
             <div class="d-flex justify-content-center">
                 <button style="margin: 20px; width:200px;" type="submit" name="submit" class="btn btn-primary">Update Data</button>
                 <a href="/proyek" class="btn btn-danger" style="margin: 20px; width:200px;">Batal</a>
