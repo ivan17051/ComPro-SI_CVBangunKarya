@@ -10,9 +10,10 @@ use App\Proyek;
 class PemasukanController extends Controller
 {
     public function index($id){
+        $proyek = Proyek::findOrFail($id);
         $pemasukan = Pemasukan::where('id_proyek', $id)->paginate(20);
 
-        return view('neraca.pemasukan.index', ['proyek' => $id, 'pemasukan' => $pemasukan]);
+        return view('neraca.pemasukan.index', ['proyek' => $proyek, 'pemasukan' => $pemasukan]);
     }
 
     public function create($id){
@@ -24,15 +25,17 @@ class PemasukanController extends Controller
 
     public function show($id){
         $unit = Pemasukan::findOrFail($id);
+        $proyek = Proyek::findOrFail($unit->id_proyek);
 
-        return view('neraca.pemasukan.show', ['unit' => $unit]);
+        return view('neraca.pemasukan.show', ['proyek' => $proyek, 'unit' => $unit]);
     }
 
     public function edit($id){
         $unit = Pemasukan::findOrFail($id);
-        $kategori = Kategori::where('keterangan', 'Pemasukan')->get();
+        $kategori = Kategori::where('id_proyek', $unit->id_proyek)->where('keterangan', 'Pemasukan')->get();
+        $proyek = Proyek::findOrFail($unit->id_proyek);
 
-        return view('neraca.pemasukan.update', ['unit' => $unit, 'kategori' => $kategori]);
+        return view('neraca.pemasukan.update', ['proyek' => $proyek, 'unit' => $unit, 'kategori' => $kategori]);
     }
 
     public function store(){
@@ -45,10 +48,10 @@ class PemasukanController extends Controller
         $pemasukan->jumlah_pemasukan_klien = request('jumlah');
         $image = request()->file('bukti');
         if($image){
-            $image_name = date('dmy_H_s_i');
+            $image_name = now(+7)->format('d-m-Y_H.i.s');
             $ext = strtolower($image->getClientOriginalExtension());
             $image_full_name = $image_name.'_pemasukan.'.$ext;
-            $upload_path = 'media/';
+            $upload_path = 'media/pemasukan/';
             $image_url = $upload_path.$image_full_name;
             $success = $image->move($upload_path, $image_full_name);
 
@@ -63,6 +66,12 @@ class PemasukanController extends Controller
     public function destroy($id){
         $pemasukan = Pemasukan::findOrFail($id);
 
+        if(\File::exists(public_path($pemasukan->upload_bukti))){
+            \File::delete(public_path($pemasukan->upload_bukti));
+        }
+        else{
+            dd('File does not exists.');
+        }
         $pemasukan->delete();
         
         return redirect()->action('PemasukanController@index', ['id' => $pemasukan->id_proyek])->with('success', 'Data Berhasil Dihapus');
@@ -79,10 +88,10 @@ class PemasukanController extends Controller
         $pemasukan->jumlah_pemasukan_klien = request('jumlah');
         $image = request()->file('bukti');
         if($image){
-            $image_name = date('dmy_H_s_i');
+            $image_name = now(+7)->format('d-m-Y_H.i.s');
             $ext = strtolower($image->getClientOriginalExtension());
             $image_full_name = $image_name.'_pemasukan.'.$ext;
-            $upload_path = 'media/';
+            $upload_path = 'media/pemasukan/';
             $image_url = $upload_path.$image_full_name;
             $success = $image->move($upload_path, $image_full_name);
 

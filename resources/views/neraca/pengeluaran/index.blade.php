@@ -1,9 +1,14 @@
 @extends('layouts.header_footer_admin')
 
 @section('content2')
-    <h1 class="text-center" style="margin-top: 7rem;">Pengeluaran</h1>
+    <div class="row">
+        <div class="col text-center" style="margin-top: 4.7rem;">
+            <h1 style="margin:30px;">Pengeluaran Neraca</h1>
+            <h3 class="text-center" style="margin:40px; margin-top:-20px;">{{ $proyek->nama_proyek }}</h3>
+        </div>
+    </div>
     <div class="col-md-12 search-table-col">
-        <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.."></div><span class="counter pull-right"></span><a href="/neraca/{{ $proyek }}/pengeluaran/create"><button class="btn btn-primary" type="button">Tambah<i class="fa fa-plus" style="margin-left: 5px;"></i></button></a>
+        <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.."></div><span class="counter pull-right"></span><a href="/neraca/{{ $proyek->id }}/pengeluaran/create"><button class="btn btn-primary" type="button">Tambah<i class="fa fa-plus" style="margin-left: 5px;"></i></button></a>
         <div
             class="table-responsive table-bordered table table-hover table-bordered results">
             <table class="table table-bordered table-hover">

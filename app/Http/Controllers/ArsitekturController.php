@@ -25,15 +25,17 @@ class ArsitekturController extends Controller
 
     public function show($id){
         $arsitektur = Arsitektur::findOrFail($id);
+        $proyek = Proyek::findOrFail($arsitektur->id_proyek);
 
-        return view('rab.arsitektur.show', ['unit' => $arsitektur]);
+        return view('rab.arsitektur.show', ['proyek' => $proyek, 'unit' => $arsitektur]);
     }
 
     public function edit($id){
-        $unit = arsitektur::findOrFail($id);
+        $unit = Arsitektur::findOrFail($id);
+        $proyek = Proyek::findOrFail($unit->id_proyek);
         $kategori = KategoriRab::where('id_proyek', $unit->id_proyek )->where('keterangan', 'Arsitektur')->get();
 
-        return view('rab.arsitektur.update', ['unit' => $unit, 'kategori' => $kategori]);
+        return view('rab.arsitektur.update', ['proyek' => $proyek, 'unit' => $unit, 'kategori' => $kategori]);
     }
 
     public function store($id){

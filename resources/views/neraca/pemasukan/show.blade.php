@@ -2,9 +2,14 @@
 
 @section('content2')
     <div class="container border rounded" style="margin-top:15vh; margin-bottom:15vh; box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15) !important;">
-    <h1 class="text-center" style="margin:40px;">Lihat Pemasukan</h1>
+        <div class="row" style="border-top:solid 5px #f39c12; border-bottom:solid 1px #bdbdbd;">
+            <div class="col text-center">
+                <h1 style="margin:30px;">Detail Pemasukan Neraca</h1>
+                <h3 class="text-center" style="margin:40px; margin-top:-20px;">{{ $proyek->nama_proyek }}</h3>
+            </div>
+        </div>
         <form action="/pemasukan/{{ $unit->id }}" method="GET" enctype="multipart/form-data">
-            <div class="row">
+            <div class="row" style="margin-top:30px;">
                 <div class="col-md-6 form-group">
                     <label>Tanggal</label>
                     <p class="border rounded" style="padding:5px;">{{ $unit->tanggal_pemasukan }}</p>

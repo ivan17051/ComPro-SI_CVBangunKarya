@@ -9,7 +9,8 @@
                     <li class="breadcrumb-item active">Rekap RAB</li>
                 </ol>
             </nav> -->
-            <h2 style="margin:30px;">Rekap Rencana Anggaran Belanja</h2>
+            <h1 style="margin:30px;">Rekap Rencana Anggaran Belanja</h1>
+            <h3 class="text-center" style="margin:40px; margin-top:-20px;">{{ $proyek->nama_proyek }}</h3>
         </div>
     </div>
     

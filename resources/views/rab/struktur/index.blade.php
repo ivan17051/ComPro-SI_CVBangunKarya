@@ -1,7 +1,12 @@
 @extends('layouts.header_footer_admin')
 
 @section('content2')
-    <h1 class="text-center" style="margin-top: 7rem;">Struktur</h1>
+    <div class="row">
+        <div class="col text-center" style="margin-top: 4.7rem;">
+            <h1 style="margin:30px;">Struktur RAB</h1>
+            <h3 class="text-center" style="margin:40px; margin-top:-20px;">{{ $proyek->nama_proyek }}</h3>
+        </div>
+    </div>
     <div class="col-md-12 search-table-col">
         <div class="form-group pull-right col-lg-4"><input type="text" class="search form-control" placeholder="Search by typing here.."></div><span class="counter pull-right"></span><a href="/rab/{{ $proyek->id }}/struktur/create"><button class="btn btn-primary" type="button">Tambah<i class="fa fa-plus" style="margin-left: 5px;"></i></button></a>
         <div
@@ -10,11 +15,11 @@
                 <thead class="bill-header cs">
                     <tr>
                         <th id="trs-hd" class="col" style="width: 2%;">#</th>
-                        <th id="trs-hd" class="col" style="width: 10%;">Uraian</th>
-                        <th id="trs-hd" class="col" style="width: 10%;">Kategori</th>
-                        <th id="trs-hd" class="col" style="width: 13%;">Volume</th>
-                        <th id="trs-hd" class="col" style="width: 10%;">Harga Satuan</th>
-                        <th id="trs-hd" class="col" style="width: 10%;">Jumlah</th>
+                        <th id="trs-hd" class="col" style="width: 14%;">Kategori</th>
+                        <th id="trs-hd" class="col" style="width: 25%;">Uraian</th>
+                        <th id="trs-hd" class="col" style="width: 10%;">Volume</th>
+                        <th id="trs-hd" class="col" style="width: 14%;">Harga Satuan</th>
+                        <th id="trs-hd" class="col" style="width: 15%;">Jumlah</th>
                         <th id="trs-hd" class="col" style="width: 20%;">Action</th>
                     </tr>
                 </thead>
@@ -27,8 +32,8 @@
                 @foreach($struktur as $unit)
                     <tr>
                         <td>{{ $unit->id }}</td>
-                        <td>{{ $unit->uraian }}</td>
                         <td>{{ $unit->kategori }}</td>
+                        <td>{{ $unit->uraian }}</td>
                         <td>{{ $unit->volume }} {{ $unit->satuan }}</td>
                         <td>Rp {{ number_format($unit->harga_satuan) }}</td>
                         <td>Rp {{ number_format($unit->jumlah) }}</td>

@@ -25,15 +25,17 @@ class PersiapanController extends Controller
 
     public function show($id){
         $persiapan = Persiapan::findOrFail($id);
+        $proyek = Proyek::findOrFail($persiapan->id_proyek);
 
-        return view('rab.persiapan.show', ['unit' => $persiapan]);
+        return view('rab.persiapan.show', ['proyek' => $proyek, 'unit' => $persiapan]);
     }
 
     public function edit($id){
         $unit = Persiapan::findOrFail($id);
         $kategori = KategoriRab::where('id_proyek', $unit->id_proyek )->where('keterangan', 'Persiapan')->get();
+        $proyek = Proyek::findOrFail($unit->id_proyek);
 
-        return view('rab.persiapan.update', ['unit' => $unit, 'kategori' => $kategori]);
+        return view('rab.persiapan.update', ['proyek' => $proyek, 'unit' => $unit, 'kategori' => $kategori]);
     }
 
     public function store($id){

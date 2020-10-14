@@ -35,8 +35,9 @@ class KategoriRabController extends Controller
 
     public function edit($id){
         $kategori = KategoriRab::findOrFail($id);
+        $proyek = Proyek::findOrFail($kategori->id_proyek);
 
-        return view('rab.kategori.update', ['unit' => $kategori]);
+        return view('rab.kategori.update', ['proyek' => $proyek, 'unit' => $kategori]);
     }
 
     public function update($id){

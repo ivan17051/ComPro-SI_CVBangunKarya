@@ -25,15 +25,17 @@ class StrukturController extends Controller
 
     public function show($id){
         $struktur = Struktur::findOrFail($id);
+        $proyek = Proyek::findOrFail($struktur->id_proyek);
 
-        return view('rab.struktur.show', ['unit' => $struktur]);
+        return view('rab.struktur.show', ['proyek' => $proyek, 'unit' => $struktur]);
     }
 
     public function edit($id){
         $unit = Struktur::findOrFail($id);
+        $proyek = Proyek::findOrFail($unit->id_proyek);
         $kategori = KategoriRab::where('id_proyek', $unit->id_proyek )->where('keterangan', 'Struktur')->get();
 
-        return view('rab.struktur.update', ['unit' => $unit, 'kategori' => $kategori]);
+        return view('rab.struktur.update', ['proyek' => $proyek, 'unit' => $unit, 'kategori' => $kategori]);
     }
 
     public function store($id){

@@ -24,16 +24,18 @@ class MepController extends Controller
     }
 
     public function show($id){
-        $persiapan = MEP::findOrFail($id);
+        $mep = MEP::findOrFail($id);
+        $proyek = Proyek::findOrFail($mep->id_proyek);
 
-        return view('rab.mep.show', ['unit' => $persiapan]);
+        return view('rab.mep.show', ['proyek' => $proyek, 'unit' => $mep]);
     }
 
     public function edit($id){
         $unit = MEP::findOrFail($id);
+        $proyek = Proyek::findOrFail($unit->id_proyek);
         $kategori = KategoriRab::where('id_proyek', $unit->id_proyek )->where('keterangan', 'MEP')->get();
 
-        return view('rab.mep.update', ['unit' => $unit, 'kategori' => $kategori]);
+        return view('rab.mep.update', ['proyek' => $proyek, 'unit' => $unit, 'kategori' => $kategori]);
     }
 
     public function store($id){

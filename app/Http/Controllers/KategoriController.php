@@ -35,8 +35,9 @@ class KategoriController extends Controller
 
     public function edit($id){
         $kategori = Kategori::findOrFail($id);
+        $proyek = Proyek::findOrFail($id);
 
-        return view('neraca.kategori.update', ['unit' => $kategori]);
+        return view('neraca.kategori.update', ['proyek' => $proyek, 'unit' => $kategori]);
     }
 
     public function update($id){

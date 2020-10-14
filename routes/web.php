@@ -29,6 +29,16 @@ Route::get('/portofolio', function () {
     return view('portofolio');
 });
 
+Route::get('/portofolio/pengalaman', 'PortofolioController@index');
+Route::post('/portofolio/pengalaman/create', 'PortofolioController@store');
+Route::get('/portofolio/pengalaman/edit/{id}', 'PortofolioController@edit');
+Route::post('/portofolio/pengalaman/edit/{id}', 'PortofolioController@update');
+Route::delete('/portofolio/pengalaman/{id}', 'PortofolioController@destroy');
+
+Route::get('/portofolio/gallery', 'PortofolioController@indexG');
+Route::post('/portofolio/gallery/create', 'PortofolioController@storeG');
+Route::delete('/portofolio/gallery/{id}', 'PortofolioController@destroyG');
+
 Route::get('/proyek', 'ProyekController@index');
 Route::get('/proyek/create', 'ProyekController@create');
 Route::post('/proyek/create', 'ProyekController@store');

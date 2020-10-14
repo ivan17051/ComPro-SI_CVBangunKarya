@@ -2,8 +2,13 @@
 
 @section('content2')
     <div class="container border rounded" style="margin-top:15vh; margin-bottom:15vh; box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15) !important;">
-        <h1 class="text-center" style="margin:40px;">Form Proyek</h1>
-        <form action="/proyek/edit/{{ $unit->id }}" method="POST" enctype="multipart/form-data">
+        <div class="row" style="border-top:solid 5px #f39c12; border-bottom:solid 1px #bdbdbd;">
+            <div class="col text-center">
+                <h1 style="margin:30px;">Edit Data Proyek</h1>
+                <h3 style="margin:40px; margin-top:-30px;">{{ $unit->nama_proyek }}</h3>
+            </div>
+        </div>
+        <form action="/proyek/edit/{{ $unit->id }}" method="POST" enctype="multipart/form-data" style="margin-top:30px;">
         @csrf            
             <div class="form-group">
                 <label>Nama Proyek</label>

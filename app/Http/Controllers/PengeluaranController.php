@@ -12,27 +12,31 @@ class PengeluaranController extends Controller
 {
     public function index($id){
         $pengeluaran = Pengeluaran::where('id_proyek', $id)->paginate(20);
+        $proyek = Proyek::findOrFail($id);
 
-        return view('neraca.pengeluaran.index', ['proyek' => $id, 'pengeluaran' => $pengeluaran]);
+        return view('neraca.pengeluaran.index', ['proyek' => $proyek, 'pengeluaran' => $pengeluaran]);
     }
 
     public function create($id){
         $kategori = Kategori::where('id_proyek', $id)->where('keterangan', 'Pengeluaran')->get();
+        $proyek = Proyek::findOrFail($id);
 
-        return view('neraca.pengeluaran.create', ['proyek' => $id, 'kategori' => $kategori]);
+        return view('neraca.pengeluaran.create', ['proyek' => $proyek, 'kategori' => $kategori]);
     }
 
     public function show($id){
         $unit = Pengeluaran::findOrFail($id);
+        $proyek = Proyek::findOrFail($unit->id_proyek);
 
-        return view('neraca.pengeluaran.show', ['unit' => $unit]);
+        return view('neraca.pengeluaran.show', ['proyek' => $proyek, 'unit' => $unit]);
     }
 
     public function edit($id){
         $unit = Pengeluaran::findOrFail($id);
         $kategori = Kategori::where('keterangan', 'Pengeluaran')->get();
+        $proyek = Proyek::findOrFail($unit->id_proyek);
 
-        return view('neraca.pengeluaran.update', ['unit' => $unit, 'kategori' => $kategori]);
+        return view('neraca.pengeluaran.update', ['proyek' => $proyek, 'unit' => $unit, 'kategori' => $kategori]);
     }
 
     public function store(){
@@ -49,10 +53,10 @@ class PengeluaranController extends Controller
         $pengeluaran->nama_toko = request('toko');
         $image = request()->file('bukti');
         if($image){
-            $image_name = date('dmy_H_s_i');
+            $image_name = now(+7)->format('d-m-Y_H.i.s');
             $ext = strtolower($image->getClientOriginalExtension());
             $image_full_name = $image_name.'_pengeluaran.'.$ext;
-            $upload_path = 'media/';
+            $upload_path = 'media/pengeluaran/';
             $image_url = $upload_path.$image_full_name;
             $success = $image->move($upload_path, $image_full_name);
 
@@ -67,7 +71,12 @@ class PengeluaranController extends Controller
     public function destroy($id){
         $pengeluaran = Pengeluaran::findOrFail($id);
 
-        Storage::delete('public/media/130820_pengeluaran.png');
+        if(\File::exists(public_path($pengeluaran->upload_bukti))){
+            \File::delete(public_path($pengeluaran->upload_bukti));
+        }
+        else{
+            dd('File does not exists.');
+        }
         $pengeluaran->delete();
         
         return redirect()->action('PengeluaranController@index', ['id' => $pengeluaran->id_proyek])->with('success', 'Data Berhasil Dihapus');
@@ -88,10 +97,10 @@ class PengeluaranController extends Controller
         $pengeluaran->nama_toko = request('toko');
         $image = request()->file('bukti');
         if($image){
-            $image_name = date('dmy_H_s_i');
+            $image_name = now(+7)->format('d-m-Y_H.i.s');
             $ext = strtolower($image->getClientOriginalExtension());
             $image_full_name = $image_name.'_pengeluaran.'.$ext;
-            $upload_path = 'media/';
+            $upload_path = 'media/pengeluaran/';
             $image_url = $upload_path.$image_full_name;
             $success = $image->move($upload_path, $image_full_name);
 

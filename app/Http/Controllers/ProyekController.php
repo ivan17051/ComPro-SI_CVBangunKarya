@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Proyek;
+use App\Kategori;
+use App\Pemasukan;
+use App\Pengeluaran;
+use App\KategoriRab;
 use App\Persiapan;
 use App\Arsitektur;
 use App\Struktur;
-use App\Pengeluaran;
 use App\MEP;
 
 class ProyekController extends Controller
@@ -37,21 +40,7 @@ class ProyekController extends Controller
     }
 
     public function show($id){
-        $proyek = Proyek::findOrFail($id);
-        $persiapan = DB::table('persiapan')->select(DB::raw('kategori, sum(jumlah) as jum'))->where('id_proyek', $id)->groupBy('kategori')->get();
-        $sumper = Persiapan::where('id_proyek', $id)->sum('jumlah');
-
-        $mep = DB::table('mep')->select(DB::raw('kategori, sum(jumlah) as jum'))->where('id_proyek', $id)->groupBy('kategori')->get();
-        $sumep = MEP::where('id_proyek', $id)->sum('jumlah');
-
-        $sumall = $sumper + $sumep;
-
-        return view('rab.show', [   'proyek' => $proyek, 
-                                    'persiapan' => $persiapan, 
-                                    'sumper' => $sumper, 
-                                    'mep' => $mep,
-                                    'sumep' => $sumep,
-                                    'sumall' => $sumall]);
+        //
     }
 
     public function store(){
@@ -92,8 +81,24 @@ class ProyekController extends Controller
 
     public function destroy($id){
         $proyek = Proyek::findOrFail($id);
+        $kategori = Kategori::where('id_proyek', $id);
+        $pemasukan = Pemasukan::where('id_proyek', $id);
+        $pengeluaran = Pengeluaran::where('id_proyek', $id);
+        $kategorirab = KategoriRab::where('id_proyek', $id);
+        $persiapan = Persiapan::where('id_proyek', $id);
+        $arsitektur = Arsitektur::where('id_proyek', $id);
+        $struktur = Struktur::where('id_proyek', $id);
+        $mep = MEP::where('id_proyek', $id);
 
         $proyek->delete();
+        $kategori->delete();
+        $pemasukan->delete();
+        $pengeluaran->delete();
+        $kategorirab->delete();
+        $persiapan->delete();
+        $arsitektur->delete();
+        $struktur->delete();
+        $mep->delete();
         
         return redirect('/proyek')->with('success', 'Data Berhasil Dihapus');
     }

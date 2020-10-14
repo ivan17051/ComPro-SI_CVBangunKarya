@@ -97,6 +97,7 @@
                                                     $dateDiffForToday = $today - $date1;
 
                                                     $percentage = round($dateDiffForToday / $dateDiff * 100);
+                                                    if($percentage > 100) $percentage=100;
                                                 @endphp
                                                 <h6 class="card-title">Progress Pengerjaan</h6>
                                                 <div class="progress" style="margin-bottom:20px;">
@@ -133,7 +134,13 @@
                                                         $pengeluaran1 = $pengeluaran->where('id_proyek', $unit->id)->first()->jum;
                                                     }
                                                     
-                                                    $total = round($pengeluaran1/($sumper1 + $sumar1 + $sumstr1 + $summep1)*100);
+                                                    if($sumper1 == 0 && $sumar1 == 0 && $sumstr1 == 0 && $summep1 == 0 ){
+                                                        $total = 0;
+                                                    }
+                                                    else{
+                                                        $total = round($pengeluaran1/($sumper1 + $sumar1 + $sumstr1 + $summep1)*100);
+                                                        if($total > 100) $total=100;
+                                                    }
                                                 @endphp
                                                 <h6 class="card-title">Progress Keuangan</h6>
                                                 <div class="progress" style="margin-bottom:10px;">
