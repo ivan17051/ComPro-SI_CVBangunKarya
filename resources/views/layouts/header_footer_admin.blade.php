@@ -28,17 +28,18 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/">Beranda</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/aboutus">Tentang Kami</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/portofolio">Portofolio</a></li>
-                    <!-- <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Menu Admin</a>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Menu Admin</a>
                         <div class="dropdown-menu" role="menu">
-                            <a class="dropdown-item" role="presentation" href="/si">Neraca Keuangan</a>
-                            <a class="dropdown-item" role="presentation" href="/kategori">Kategori</a>
-                            <a class="dropdown-item" role="presentation" href="/pengeluaran">Pengeluaran</a>
-                            <a class="dropdown-item" role="presentation" href="/pemasukan">Pemasukan</a>
+                            <a class="dropdown-item" role="presentation" href="/proyek">List Proyek</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" role="presentation" href="/rab">RAB</a>
+                            <a class="dropdown-item" role="presentation" href="/portofolio/pengalaman">Pengalaman</a>
+                            <a class="dropdown-item" role="presentation" href="/portofolio/gallery">Gallery</a>
+                            <!-- <a class="dropdown-item" role="presentation" href="/pemasukan">Pemasukan</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" role="presentation" href="/rab">RAB</a> -->
                         </div>
-                    </li> -->
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/proyek">Proyek</a>
+                    </li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="/proyek">Proyek</a> -->
                     </li>
                 </ul>
             </div>

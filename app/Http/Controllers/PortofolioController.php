@@ -82,9 +82,29 @@ class PortofolioController extends Controller
 
     public function destroyG($id){
         $gallery = Gallery::findOrFail($id);
+        
+        if(\File::exists(public_path($gallery->upload_foto))){
+            \File::delete(public_path($gallery->upload_foto));
+        }
+        else{
+            dd('File does not exists.');
+        }
 
         $gallery->delete();
         
         return redirect()->action('PortofolioController@indexG')->with('success', 'Data Berhasil Dihapus');
+    }
+
+    public function show(){
+        $gallery = Gallery::paginate(20);
+        $pengalaman = Pengalaman::orderBy('tahun', 'desc')->orderBy('id', 'asc')->paginate(20);
+
+        return view('portofolio', ['gallery' => $gallery, 'pengalaman' => $pengalaman]);
+    }
+
+    public function home(){
+        $gallery = Gallery::paginate(20);
+
+        return view('home', ['gallery' => $gallery]);
     }
 }

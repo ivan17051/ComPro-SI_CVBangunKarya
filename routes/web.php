@@ -25,10 +25,8 @@ Route::get('/aboutus', function () {
     return view('aboutus');
 });
 
-Route::get('/portofolio', function () {
-    return view('portofolio');
-});
-
+Route::get('/', 'PortofolioController@home');
+Route::get('/portofolio', 'PortofolioController@show');
 Route::get('/portofolio/pengalaman', 'PortofolioController@index');
 Route::post('/portofolio/pengalaman/create', 'PortofolioController@store');
 Route::get('/portofolio/pengalaman/edit/{id}', 'PortofolioController@edit');
